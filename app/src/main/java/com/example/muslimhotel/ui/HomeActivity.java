@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.muslimhotel.R;
+import com.example.muslimhotel.UserProfileFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +58,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             }break;
             case R.id.nav_profile:{
                 navigationSelection(R.id.nav_profile);
-                loadFragmment(new HomeFragment());
+                loadFragmment(new UserProfileFragment());
             }break;
 
         }
