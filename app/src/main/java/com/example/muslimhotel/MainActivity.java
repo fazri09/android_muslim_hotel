@@ -19,7 +19,7 @@ import com.tomer.fadingtextview.FadingTextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ViewFlipper vliper_image;
+    private ViewFlipper vliper_image, vliper_loading;
     private TextView skip;
     private FadingTextView faddingTextView;
     private RelativeLayout relativeLogin;
@@ -30,8 +30,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         int images[] = {R.drawable.screen1, R.drawable.screen2, R.drawable.screen3};
+        int loadingimage[] = {R.drawable.garisbiru1, R.drawable.garisbiru2, R.drawable.garisbiru3};
 
         vliper_image = (ViewFlipper) findViewById(R.id.vliper_image);
+        vliper_loading = (ViewFlipper) findViewById(R.id.vliper_loading);
         faddingTextView = (FadingTextView) findViewById(R.id.faddingTextView);
         relativeLogin = (RelativeLayout) findViewById(R.id.relativeLogin);
 
@@ -50,10 +52,27 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < images.length; i++){
             flipperImages(images[i]);
         }
+//
+        for (int a = 0; a < loadingimage.length; a++){
+            flipperLoading(loadingimage[a]);
+        }
 
         String underl = "<u>SKIP FOR NOW</u>";
         skip.setText(Html.fromHtml(underl));
 
+    }
+
+    private void flipperLoading(int i) {
+
+        ImageView imageView = new ImageView(MainActivity.this);
+        imageView.setBackgroundResource(i);
+
+        vliper_loading.addView(imageView);
+        vliper_loading.setFlipInterval(2450);
+        vliper_loading.setAutoStart(true);
+
+        vliper_image.setOutAnimation(MainActivity.this, android.R.anim.slide_out_right);
+        vliper_image.setInAnimation(MainActivity.this, android.R.anim.slide_in_left);
     }
 
     private void flipperImages(int image) {
