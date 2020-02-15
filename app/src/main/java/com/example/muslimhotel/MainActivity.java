@@ -3,14 +3,17 @@ package com.example.muslimhotel;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.media.Image;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
 
+import com.example.muslimhotel.ui.HomeActivity;
 import com.tomer.fadingtextview.FadingTextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewFlipper vliper_image;
     private TextView skip;
     private FadingTextView faddingTextView;
-
+    private RelativeLayout relativeLogin;
     @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,16 @@ public class MainActivity extends AppCompatActivity {
 
         vliper_image = (ViewFlipper) findViewById(R.id.vliper_image);
         faddingTextView = (FadingTextView) findViewById(R.id.faddingTextView);
+        relativeLogin = (RelativeLayout) findViewById(R.id.relativeLogin);
+
+        relativeLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
         skip = (TextView) findViewById(R.id.skip);
 
         faddingTextView.setTimeout(FadingTextView.SECONDS,2);
