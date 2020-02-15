@@ -22,7 +22,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        listNav.add(new Navigation(R.id.nav_search, R.id.iv_search, R.drawable.fb, R.drawable.ic_person_24px));
+        listNav.add(new Navigation(R.id.nav_search, R.id.iv_search, R.drawable.fb, R.drawable.search));
         listNav.add(new Navigation(R.id.nav_favorite, R.id.iv_favorite, R.drawable.google, R.drawable.iconawesomeheart));
         listNav.add(new Navigation(R.id.nav_profile, R.id.iv_profile, R.drawable.m, R.drawable.ic_person_24px));
         for (Navigation i : listNav){
