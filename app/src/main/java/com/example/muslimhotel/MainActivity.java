@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.example.muslimhotel.ui.HomeActivity;
+import com.example.muslimhotel.ui.SigninActivity;
 import com.tomer.fadingtextview.FadingTextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        int images[] = {R.drawable.background, R.drawable.fb, R.drawable.google};
+        int images[] = {R.drawable.screen1, R.drawable.screen2, R.drawable.screen3};
 
         vliper_image = (ViewFlipper) findViewById(R.id.vliper_image);
         faddingTextView = (FadingTextView) findViewById(R.id.faddingTextView);
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
         relativeLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                Intent intent = new Intent(MainActivity.this, SigninActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -61,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
         imageView.setBackgroundResource(image);
 
         vliper_image.addView(imageView);
-        vliper_image.setFlipInterval(2500);
+        vliper_image.setFlipInterval(2450);
         vliper_image.setAutoStart(true);
 
         vliper_image.setOutAnimation(MainActivity.this, android.R.anim.slide_out_right);

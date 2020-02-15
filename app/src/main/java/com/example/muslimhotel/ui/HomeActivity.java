@@ -64,7 +64,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private class Navigation{
-
         public int container;
         public int image;
         public int imageSelected, imageUnselected;
