@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.SigninActivity"
+    tools:context=".ui.SigninActivity"
     android:background="@drawable/background"
     android:orientation="vertical">
 <TextView
@@ -21,9 +21,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginLeft="12dp"
-        android:layout_marginRight="12dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="40dp"
         android:background="@drawable/background"
+        app:tabIndicatorHeight="7dp"
+        app:tabTextAppearance="@style/customTaplayout"
         app:tabGravity="fill"
         app:tabMode="fixed" />
 

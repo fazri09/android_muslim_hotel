@@ -1,5 +1,10 @@
 package com.example.muslimhotel.adapter;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
@@ -7,13 +12,16 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 
+import com.example.muslimhotel.R;
 import com.example.muslimhotel.ui.LoginFragment;
 import com.example.muslimhotel.ui.SignUpFragment;
 
 public class SigninAdapter extends FragmentStatePagerAdapter {
 
-    public SigninAdapter(FragmentManager fm) {
+    private Context context;
+    public SigninAdapter(FragmentManager fm, Context context) {
         super(fm);
+        this.context = context;
     }
 
     @NonNull
@@ -66,6 +74,8 @@ public class SigninAdapter extends FragmentStatePagerAdapter {
 //        return tabTitles[position];
 //    }
 //
+
+//    @Override
 //    public View getTabView(int position) {
 //        View tab = LayoutInflater.from(context).inflate(R.layout.custom_tab, null);
 //        TextView tv1 = (TextView) tab.findViewById(R.id.custom_text1);

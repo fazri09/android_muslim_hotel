@@ -29,7 +29,7 @@ public class SigninActivity extends AppCompatActivity {
         login = tabLayout.newTab();
         signUp = tabLayout.newTab();
 
-        signinAdapter = new SigninAdapter(getSupportFragmentManager());
+        signinAdapter = new SigninAdapter(getSupportFragmentManager(),this);
         viewPager.setAdapter(signinAdapter);
 
 
@@ -38,15 +38,26 @@ public class SigninActivity extends AppCompatActivity {
         tabLayout.addTab(login,0);
         tabLayout.addTab(signUp,1);
 
+        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.white));
+        tabLayout.setTabTextColors(getResources().getColor(R.color.blue),getResources().getColor(R.color.white));
+
+
+
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 viewPager.setCurrentItem(tab.getPosition());
                 if (tab.getPosition() == 0){
+                    tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.white));
+                    tabLayout.setTabTextColors(getResources().getColor(R.color.blue),getResources().getColor(R.color.white));
+
                     // do something
                 }
                 if (tab.getPosition() == 1){
+                    tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.blue));
+                    tabLayout.setTabTextColors(getResources().getColor(R.color.white),getResources().getColor(R.color.blue));
+
                     // do something
                 }
 
