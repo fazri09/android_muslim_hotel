@@ -1,4 +1,4 @@
-package com.example.muslimhotel;
+package com.example.muslimhotel.ui;
 
 import android.content.Context;
 import android.net.Uri;
