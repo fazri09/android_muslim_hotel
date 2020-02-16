@@ -34,7 +34,6 @@ public class HomeFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_home, container, false);
         showDialogPertama();
         return v;
-
     }
 
     private void showDialogPertama() {

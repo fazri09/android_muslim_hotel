@@ -3,9 +3,6 @@
 
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
-
-
     >
     <RelativeLayout
         android:layout_centerInParent="true"
@@ -13,14 +10,16 @@
         android:layout_height="559dp"
         android:background="@drawable/dialogboxgradient">
         <TextView
+            android:layout_marginTop="3dp"
+            android:layout_centerHorizontal="true"
             android:id="@+id/dialogtv1"
-            android:layout_marginLeft="23dp"
+            android:layout_marginLeft="22dp"
             android:layout_marginRight="22dp"
             android:textColor="@color/white"
             android:fontFamily="@font/bestrong"
-            android:textSize="31dp"
+            android:textSize="25dp"
             android:textAlignment="center"
-            android:layout_width="299dp"
+            android:layout_width="wrap_content"
             android:layout_height="63dp"
             android:text="Hotel Halal Features"
             />
