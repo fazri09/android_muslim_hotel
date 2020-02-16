@@ -4,9 +4,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -14,6 +17,7 @@ import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.example.muslimhotel.ui.HomeActivity;
+import com.example.muslimhotel.ui.LoginFragment;
 import com.example.muslimhotel.ui.SigninActivity;
 import com.tomer.fadingtextview.FadingTextView;
 
@@ -28,6 +32,14 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
+
+        if (sp.getBoolean(LoginFragment.PREF_IS_LOGIN, false)) {
+            startActivity(new Intent(MainActivity.this, HomeActivity.class));
+            finish();
+            return;
+        }
 
         int images[] = {R.drawable.screen1, R.drawable.screen2, R.drawable.screen3};
         int loadingimage[] = {R.drawable.garisbiru1, R.drawable.garisbiru2, R.drawable.garisbiru3};

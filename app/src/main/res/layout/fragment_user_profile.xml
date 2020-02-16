@@ -134,6 +134,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/btnHelp"
         app:cardCornerRadius="20dp"
         app:cardElevation="10dp"
         android:layout_width="370dp"
@@ -257,4 +258,15 @@
 <!--        </LinearLayout>-->
 <!--    </LinearLayout>-->
 
+    <TextView
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:textColor="@color/blue"
+        android:layout_below="@id/btnHelp"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        />
 </RelativeLayout>

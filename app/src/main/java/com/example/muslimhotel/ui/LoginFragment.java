@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,6 +43,13 @@ public class LoginFragment extends Fragment {
 
     String tag_json_obj = "json_obj_req";
     private String url_login = Server.URL_PROD + "/crud/login_aksi";
+
+    public static final String PREF_IS_LOGIN = "is_login";
+    public static final String PREF_EMAIL = "data_email";
+    public static final String PREF_PASSWORD = "data_password";
+    public static final String PREF_NAMA = "data_nama";
+    public static final String PREF_ID = "data_id";
+
 
 
     @Nullable
@@ -87,12 +95,29 @@ public class LoginFragment extends Fragment {
                 Log.d("cekresponse", "Register Response: " + response.toString());
                 hideDialog();
                 try {
+
                     JSONObject object = new JSONObject(response);
 
                     String status = object.getString("status");
+                    String id = object.getString("id");
+                    String nama = object.getString("nama");
+                    String email = object.getString("email");
+                    String password = object.getString("password");
                     Log.d("cekstatus", "onResponse: "+status);
 
                     if (status.equalsIgnoreCase("1")){
+                        //set session
+                        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                        SharedPreferences.Editor editor = preferences.edit();
+                        editor.putBoolean(PREF_IS_LOGIN, true);
+                        editor.putString(PREF_NAMA, nama);
+                        editor.putString(PREF_PASSWORD, password);
+                        editor.putString(PREF_EMAIL, email);
+                        editor.putString(PREF_ID, id);
+                        editor.commit();
+
+
+                        //intent
                         Toast.makeText(getActivity(), "Login Berhasil", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getActivity(), HomeActivity.class);
                         startActivity(intent);
