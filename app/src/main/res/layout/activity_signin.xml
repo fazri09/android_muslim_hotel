@@ -7,14 +7,32 @@
     tools:context=".ui.SigninActivity"
     android:background="@drawable/background"
     android:orientation="vertical">
-<TextView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="Muslim Travel"
-    android:textSize="30sp"
-    android:layout_gravity="center"
-    android:layout_marginTop="50dp"
-    />
+    <LinearLayout
+        android:layout_marginLeft="71dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        >
+        <TextView
+            android:fontFamily="@font/bestrong"
+            android:textSize="38sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="83dp"
+            android:text="Muslim"
+            android:textColor="#FFFFFF"
+            />
+        <TextView
+            android:fontFamily="@font/bestrong"
+            android:textSize="38sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="89dp"
+            android:text="Travel"
+            android:textColor="#48C1FF"
+            />
+    </LinearLayout>
+
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/slide"
