@@ -39,6 +39,7 @@ public class AuthorsHotelAdapter extends RecyclerView.Adapter<AuthorsHotelAdapte
         holder.tvReview.setText("("+String.valueOf(data.getReview()+") Review "));
         holder.tvTempat.setText(data.getTempat());
         holder.tvDeskripsi.setText(data.getNmHotel());
+        holder.tvscor.setText(data.getScoreHotel());
 
     }
 
@@ -49,7 +50,7 @@ public class AuthorsHotelAdapter extends RecyclerView.Adapter<AuthorsHotelAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView ivGambar;
-        private TextView tvReview,tvTempat,tvDeskripsi;
+        private TextView tvReview,tvTempat,tvDeskripsi,tvscor;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -57,6 +58,7 @@ public class AuthorsHotelAdapter extends RecyclerView.Adapter<AuthorsHotelAdapte
             tvDeskripsi = itemView.findViewById(R.id.tvcardac2);
             tvReview = itemView.findViewById(R.id.tv_review);
             tvTempat = itemView.findViewById(R.id.tv_tempat);
+            tvscor = itemView.findViewById(R.id.gradbox);
         }
     }
 }

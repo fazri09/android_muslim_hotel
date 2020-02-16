@@ -40,6 +40,7 @@ public class EditorsPicksAdapter extends RecyclerView.Adapter<EditorsPicksAdapte
         holder.tvReview.setText("("+data.getReview()+") Review");
         holder.tvDeskripsi.setText(data.getTempat());
         Picasso.with(context).load(data.getGambarHotel()).into(holder.ivGambar);
+        holder.tvScore.setText(data.getScorelHotel());
     }
 
     @Override
@@ -49,13 +50,15 @@ public class EditorsPicksAdapter extends RecyclerView.Adapter<EditorsPicksAdapte
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         private ImageView ivGambar;
-        private TextView tvReview,tvTempat,tvDeskripsi;
+        private TextView tvReview,tvTempat,tvDeskripsi,tvScore;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             ivGambar = itemView.findViewById(R.id.iv_gambar_hotel);
             tvDeskripsi = itemView.findViewById(R.id.deskripsi);
             tvReview = itemView.findViewById(R.id.review);
             tvTempat = itemView.findViewById(R.id.tv_tempat);
+            tvScore = itemView.findViewById(R.id.gradbox);
+
         }
     }
 }

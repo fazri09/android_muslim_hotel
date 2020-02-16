@@ -209,6 +209,8 @@ public class HomeFragment extends Fragment {
                         mAuthors.setGambarHotel(data.getString("img_hotel"));
                         mAuthors.setNmHotel(data.getString("nama_hotel"));
                         mAuthors.setTempat(data.getString("alamat_hotel"));
+                        mAuthors.setScoreHotel(data.getString("score_hotel"));
+                        mAuthors.setReview(data.getString("reviewer_hotel"));
 
                         listAuthor.add(mAuthors);
                         adapterAuthors.notifyDataSetChanged();

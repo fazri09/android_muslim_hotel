@@ -38,9 +38,9 @@ public class HotelDiscoverAdapter extends RecyclerView.Adapter<HotelDiscoverAdap
     public void onBindViewHolder(@NonNull HotelDiscoverAdapter.VIewHolder holder, int position) {
     HotelDiscover data = list.get(position);
         Picasso.with(context).load(data.getGambarHotel()).into(holder.ivGambar);
-        holder.tvNmHotel.setText(data.getNmHotel());
-        holder.tvTempat.setText(data.getTempatHotel());
-        holder.tvDeskripsi.setText(data.getDeskripsiHotel());
+        holder.tvNmHotel.setText(data.getTempatHotel()+","+data.getDeskripsiHotel());
+        holder.tvTempat.setText(data.getNmHotel());
+
 
     }
 
