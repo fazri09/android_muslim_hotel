@@ -66,6 +66,7 @@
                 android:background="@drawable/dividercarddiscv"
                 />
             <TextView
+                android:id="@+id/tv_deskripsi"
                 android:layout_marginLeft="24dp"
                 android:layout_marginRight="24dp"
                 android:layout_marginTop="10dp"

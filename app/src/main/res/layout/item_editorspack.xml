@@ -15,11 +15,13 @@
             android:background="@drawable/background_editor">
 
             <ImageView
+                android:id="@+id/iv_gambar_hotel"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@drawable/editor1"/>
 
             <TextView
+                android:id="@+id/tv_tempat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"

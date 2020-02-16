@@ -7,6 +7,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
+        android:focusableInTouchMode="true"
         android:layout_height="match_parent"
         tools:context=".ui.HomeFragment">
 
@@ -228,22 +229,29 @@
             android:textSize="18dp"
             android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/gambar_promo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rV1"
             android:layout_below="@+id/tv_promo"
-            android:layout_marginLeft="11dp"
-            android:layout_marginTop="19dp"
-            android:src="@drawable/promo1" />
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+
+            />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/gambar_promo"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/tv_promo"-->
+<!--            android:layout_marginLeft="11dp"-->
+<!--            android:layout_marginTop="19dp"-->
+<!--            android:src="@drawable/promo1" />-->
 
         <TextView
             android:id="@+id/tv_best"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/gambar_promo"
+            android:layout_below="@+id/rV1"
             android:layout_marginLeft="18dp"
-            android:layout_marginTop="28dp"
             android:text="Best Places To \nTravel In December"
             android:textColor="#48C1FF"
             android:textSize="36dp" />
@@ -268,6 +276,32 @@
             android:textColor="#111111"
             android:textSize="15dp"
             android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rV2"
+            android:layout_below="@+id/tv_editor"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+
+            />
+        <TextView
+            android:id="@+id/tv_discover"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rV2"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="38dp"
+            android:text="DISCOVER HOTELS NEAR YOU"
+            android:textColor="#111111"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rV3"
+            android:layout_below="@+id/tv_discover"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+
+            />
     </RelativeLayout>
 </ScrollView>
 
