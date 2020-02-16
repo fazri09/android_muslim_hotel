@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
         imageView.setBackgroundResource(i);
 
         vliper_loading.addView(imageView);
-        vliper_loading.setFlipInterval(2450);
+        vliper_loading.setFlipInterval(2400);
         vliper_loading.setAutoStart(true);
 
         vliper_image.setOutAnimation(MainActivity.this, android.R.anim.slide_out_right);
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         imageView.setBackgroundResource(image);
 
         vliper_image.addView(imageView);
-        vliper_image.setFlipInterval(2450);
+        vliper_image.setFlipInterval(2400);
         vliper_image.setAutoStart(true);
 
         vliper_image.setOutAnimation(MainActivity.this, android.R.anim.slide_out_right);

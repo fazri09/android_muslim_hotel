@@ -70,7 +70,18 @@ public class SignUpFragment extends Fragment {
                 email = et_email.getText().toString();
                 password = et_password.getText().toString();
                 password2 = et_cpassword.getText().toString();
-                reqSignupApi(nama, email, password);
+
+                if (password2.equalsIgnoreCase("")){
+                    password_ga_sesuai.setVisibility(View.VISIBLE);
+                }else if (password.equalsIgnoreCase("")){
+                    password_ga_sesuai.setVisibility(View.VISIBLE);
+                }else {
+                    if (password.equalsIgnoreCase(password2)){
+                        reqSignupApi(nama, email, password);
+                    }else{
+                        password_ga_sesuai.setVisibility(View.VISIBLE);
+                    }
+                }
             }
         });
     }

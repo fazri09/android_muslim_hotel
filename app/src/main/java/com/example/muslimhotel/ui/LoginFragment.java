@@ -85,7 +85,7 @@ public class LoginFragment extends Fragment {
     private void reqLoginApi(final String email, final String password) {
         pDialog = new ProgressDialog(getActivity());
         pDialog.setCancelable(false);
-        pDialog.setMessage("Register ...");
+        pDialog.setMessage("Mohon Tunggu ...");
         showDialog();
 
         StringRequest strReq = new StringRequest(Request.Method.POST, url_login  , new Response.Listener<String>() {
