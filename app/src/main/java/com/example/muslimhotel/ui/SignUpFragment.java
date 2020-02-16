@@ -70,12 +70,12 @@ public class SignUpFragment extends Fragment {
                 email = et_email.getText().toString();
                 password = et_password.getText().toString();
                 password2 = et_cpassword.getText().toString();
-                reqLoginApi(nama, email, password);
+                reqSignupApi(nama, email, password);
             }
         });
     }
 
-    private void reqLoginApi(final String nama, final String email, final String password) {
+    private void reqSignupApi(final String nama, final String email, final String password) {
         pDialog = new ProgressDialog(getActivity());
         pDialog.setCancelable(false);
         pDialog.setMessage("Register ...");
