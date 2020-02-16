@@ -20,13 +20,14 @@ import com.example.muslimhotel.R;
 
 public class UserProfileFragment extends Fragment {
 
-    private TextView btnLogout;
+    private TextView btnLogout, TVNAME;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_user_profile, container, false);
         btnLogout = (TextView) v.findViewById(R.id.btnLogout);
+        TVNAME = (TextView) v.findViewById(R.id.TVNAME);
 
         return v;
     }
@@ -47,6 +48,11 @@ public class UserProfileFragment extends Fragment {
                 startActivity(intent);
             }
         });
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String session_nama = sp.getString(LoginFragment.PREF_NAMA, null);
+        TVNAME.setText(session_nama);
+
 
     }
 
