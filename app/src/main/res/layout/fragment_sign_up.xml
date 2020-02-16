@@ -44,7 +44,7 @@
                         android:layout_height="wrap_content"
                         android:drawableLeft="@drawable/ic_business_black_48px"
                         android:drawablePadding="7dp"
-                        android:hint="Email" />
+                        android:hint="Your Name" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -103,12 +103,23 @@
                         android:inputType="textPassword"
                         android:drawableLeft="@drawable/ic_lock_black_48px"
                         android:drawablePadding="7dp"
-                        android:hint="Password" />
+                        android:hint="Confirm Password" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
+                <TextView
+                    android:visibility="gone"
+                    android:id="@+id/password_ga_sesuai"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Password tidak sesuai"
+                    android:layout_marginTop="1dp"
+                    android:textColor="#FF0000"
+                    android:textAlignment="center"
+                    />
 
                 <TextView
+                    android:id="@+id/submit"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/btn_login"
