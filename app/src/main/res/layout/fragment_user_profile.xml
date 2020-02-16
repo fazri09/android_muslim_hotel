@@ -56,6 +56,8 @@
         android:textAlignment="center"
         />
     <androidx.cardview.widget.CardView
+        android:layout_marginLeft="27dp"
+        android:layout_marginRight="11dp"
         app:cardElevation="6dp"
         app:cardCornerRadius="20dp"
         android:layout_marginTop="40dp"
@@ -80,6 +82,8 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:layout_marginLeft="27dp"
+        android:layout_marginRight="11dp"
         app:cardElevation="10dp"
         android:layout_centerHorizontal="true"
         android:id="@+id/btn2"
@@ -105,6 +109,8 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:layout_marginLeft="27dp"
+        android:layout_marginRight="11dp"
         app:cardElevation="10dp"
         android:layout_width="370dp"
         android:layout_height="40dp"
