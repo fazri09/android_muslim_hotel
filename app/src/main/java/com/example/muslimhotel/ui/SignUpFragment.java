@@ -106,11 +106,9 @@ public class SignUpFragment extends Fragment {
             protected Map<String, String> getParams() {
                 // Posting parameters to login url
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("username", "fazri3");
-                params.put("password", password);
                 params.put("nama", nama);
-                params.put("alamat", "kaumpandak2");
-                params.put("pekerjaan", "dagang2");
+                params.put("email", email);
+                params.put("password", password);
 
                 return params;
             }
