@@ -44,6 +44,6 @@ public class VPAdapter extends PagerAdapter {
 
     @Override
     public float getPageWidth(int position) {
-        return 0.6f;
+        return 0.7f;
     }
 }
