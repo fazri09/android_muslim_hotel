@@ -10,6 +10,7 @@ import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
+import androidx.viewpager.widget.ViewPager;
 
 import android.text.Html;
 import android.util.Log;
@@ -29,6 +30,7 @@ import com.example.muslimhotel.adapter.AuthorsHotelAdapter;
 import com.example.muslimhotel.adapter.EditorsPicksAdapter;
 import com.example.muslimhotel.adapter.HotelDiscoverAdapter;
 import com.example.muslimhotel.adapter.PromoAdapter;
+import com.example.muslimhotel.adapter.VPAdapter;
 import com.example.muslimhotel.app.AppController;
 import com.example.muslimhotel.model.AuthorsHotel;
 import com.example.muslimhotel.model.EditorsPicks;
@@ -51,6 +53,7 @@ public class HomeFragment extends Fragment {
     View dialogView;
     TextView tvunderline;
     Button btnOk;
+    private ViewPager viewPager;
     private String TAG = "HomeFragment";
     private RecyclerView rLvPromo,rlvPicks,rlvDiscover,rlvAuthors;
     private ArrayList<Promo> listPromo = new ArrayList<>();
@@ -112,6 +115,9 @@ public class HomeFragment extends Fragment {
         staggered.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         rlvAuthors.setLayoutManager(staggered);
         rlvAuthors.setAdapter(adapterAuthors);
+        viewPager = v.findViewById(R.id.viewpager);
+        VPAdapter vpAdapter = new VPAdapter(v.getContext());
+        viewPager.setAdapter(vpAdapter);
 
         showDialogPertama();
         getDataEditors();

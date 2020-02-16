@@ -238,20 +238,29 @@
 
             />
 
-        <ImageView
-            android:id="@+id/gambar_promo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_promo"
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewpager"
             android:layout_marginLeft="11dp"
-            android:layout_marginTop="20dp"
-            android:src="@drawable/promo1" />
+            android:layout_marginTop="19dp"
+            android:layout_width="wrap_content"
+            android:layout_height="150dp"
+            android:layout_below="@id/tv_promo"
+            />
+
+<!--        <ImageView-->
+<!--            android:id="@+id/gambar_promo"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_below="@+id/tv_promo"-->
+<!--            android:layout_marginLeft="11dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:src="@drawable/promo1" />-->
 
         <TextView
             android:id="@+id/tv_best"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/gambar_promo"
+            android:layout_below="@+id/viewpager"
             android:layout_marginLeft="18dp"
             android:text="Best Places To \nTravel In December"
             android:textColor="#48C1FF"
