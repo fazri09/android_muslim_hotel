@@ -53,8 +53,6 @@ public class HomeFragment extends Fragment {
                 dialog.dismiss();
             }
         });
-
         dialog.show();
-
     }
 }
