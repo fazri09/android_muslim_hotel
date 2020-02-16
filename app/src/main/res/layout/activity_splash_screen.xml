@@ -5,9 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.SplashScreen"
-    android:background="#48C1FF">
+    android:background="@drawable/splashbackdrawable">
 
     <TextView
+        android:fontFamily="@font/bestrong"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Muslim Travel"
