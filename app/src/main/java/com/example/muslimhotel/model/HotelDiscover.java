@@ -2,15 +2,19 @@ package com.example.muslimhotel.model;
 
 public class HotelDiscover {
     private String nmHotel;
-    private int gambarHotel;
+    private String gambarHotel;
     private String deskripsiHotel;
     private String tempatHotel;
 
-    public HotelDiscover(String nmHotel, int gambarHotel, String deskripsiHotel, String tempatHotel) {
+    public HotelDiscover(String nmHotel, String gambarHotel, String deskripsiHotel, String tempatHotel) {
         this.nmHotel = nmHotel;
         this.gambarHotel = gambarHotel;
         this.deskripsiHotel = deskripsiHotel;
         this.tempatHotel = tempatHotel;
+    }
+
+    public HotelDiscover() {
+
     }
 
     public String getNmHotel() {
@@ -21,11 +25,11 @@ public class HotelDiscover {
         this.nmHotel = nmHotel;
     }
 
-    public int getGambarHotel() {
+    public String getGambarHotel() {
         return gambarHotel;
     }
 
-    public void setGambarHotel(int gambarHotel) {
+    public void setGambarHotel(String gambarHotel) {
         this.gambarHotel = gambarHotel;
     }
 

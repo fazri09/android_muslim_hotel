@@ -234,23 +234,24 @@
             android:layout_below="@+id/tv_promo"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:visibility="gone"
 
             />
 
-<!--        <ImageView-->
-<!--            android:id="@+id/gambar_promo"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@+id/tv_promo"-->
-<!--            android:layout_marginLeft="11dp"-->
-<!--            android:layout_marginTop="19dp"-->
-<!--            android:src="@drawable/promo1" />-->
+        <ImageView
+            android:id="@+id/gambar_promo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_promo"
+            android:layout_marginLeft="11dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/promo1" />
 
         <TextView
             android:id="@+id/tv_best"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/rV1"
+            android:layout_below="@+id/gambar_promo"
             android:layout_marginLeft="18dp"
             android:text="Best Places To \nTravel In December"
             android:textColor="#48C1FF"
@@ -262,6 +263,7 @@
             android:layout_height="2dp"
             android:layout_below="@+id/tv_best"
             android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
             android:layout_marginTop="30dp"
             android:background="#EFEFEF" />
 
@@ -271,7 +273,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/view_best"
             android:layout_marginLeft="26dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="35dp"
             android:text="EDITOR’S PICKS"
             android:textColor="#111111"
             android:textSize="15dp"
@@ -281,16 +283,27 @@
             android:id="@+id/rV2"
             android:layout_below="@+id/tv_editor"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="350dp"
+            android:layout_marginTop="20dp"
+
 
             />
+        <View
+            android:id="@+id/view_best2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/rV2"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="30dp"
+            android:background="#EFEFEF" />
         <TextView
             android:id="@+id/tv_discover"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/rV2"
+            android:layout_below="@+id/view_best2"
             android:layout_marginLeft="26dp"
-            android:layout_marginTop="38dp"
+            android:layout_marginTop="35dp"
             android:text="DISCOVER HOTELS NEAR YOU"
             android:textColor="#111111"
             android:textSize="15dp"
@@ -299,7 +312,40 @@
             android:id="@+id/rV3"
             android:layout_below="@+id/tv_discover"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="400dp"
+
+
+            />
+        <View
+            android:id="@+id/view_best3"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_below="@+id/rV3"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginTop="30dp"
+            android:background="#EFEFEF" />
+
+        <TextView
+            android:id="@+id/tv_authors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/view_best3"
+            android:layout_marginLeft="26dp"
+            android:layout_marginTop="35dp"
+            android:text="AUTHOR'S CHOICE"
+            android:textColor="#111111"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rV4"
+            android:layout_below="@+id/tv_authors"
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="300dp"
+
 
             />
     </RelativeLayout>
