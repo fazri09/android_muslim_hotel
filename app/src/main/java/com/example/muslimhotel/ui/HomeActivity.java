@@ -29,6 +29,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             findViewById(i.container).setOnClickListener(this);
         }
 
+
+
         loadFragmment(new HomeFragment());
         navigationSelection(R.id.nav_search);
 

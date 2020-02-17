@@ -77,6 +77,8 @@ public class HomeFragment extends Fragment {
     private String URLGetDataDiscover = Server.URL_PROD+"/crud/hotel_near";
     private String URLGetDataAuthors = Server.URL_PROD+"/crud/author";
 
+    private RelativeLayout btn_search;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -87,6 +89,7 @@ public class HomeFragment extends Fragment {
         rlvPicks = (RecyclerView)v.findViewById(R.id.rV2);
         rlvDiscover = (RecyclerView)v.findViewById(R.id.rV3);
         rlvAuthors= (RecyclerView)v.findViewById(R.id.rV4);
+        btn_search = (RelativeLayout)v.findViewById(R.id.btn_search);
 
         listPromo.add(new Promo(R.drawable.promo1));
         listPromo.add(new Promo(R.drawable.promo1));
@@ -127,13 +130,13 @@ public class HomeFragment extends Fragment {
 //            }
 //        });
 
-//        etintent.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intenttosearch = new Intent(getActivity(),SearchActivity.class);
-//                startActivity(intenttosearch);
-//            }
-//        });
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intenttosearch = new Intent(getActivity(),SearchActivity.class);
+                startActivity(intenttosearch);
+            }
+        });
         adapterAuthors= new AuthorsHotelAdapter(listAuthor,getActivity());
         rlvAuthors.setHasFixedSize(true);
         staggered = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
