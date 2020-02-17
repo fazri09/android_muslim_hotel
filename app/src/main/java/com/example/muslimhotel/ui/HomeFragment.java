@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -16,10 +17,14 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.text.Html;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.AuthFailureError;
@@ -55,7 +60,7 @@ public class HomeFragment extends Fragment {
     View dialogView;
     TextView tvunderline;
     Button btnOk;
-
+    EditText etintent;
     private ViewPager viewPager;
     private String TAG = "HomeFragment";
     private RecyclerView rLvPromo,rlvPicks,rlvDiscover,rlvAuthors;
@@ -77,6 +82,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
+        etintent = v.findViewById(R.id.etintent);
         rLvPromo = (RecyclerView)v.findViewById(R.id.rV1);
         rlvPicks = (RecyclerView)v.findViewById(R.id.rV2);
         rlvDiscover = (RecyclerView)v.findViewById(R.id.rV3);
@@ -108,9 +114,26 @@ public class HomeFragment extends Fragment {
         rlvDiscover.setLayoutManager(staggered);
         rlvDiscover.setAdapter(adapterDiscover);
 
+//        etintent.setOnEditorActionListener(new EditText.OnEditorActionListener() {
+//            @Override
+//            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+//                if (i== EditorInfo.IME_ACTION_DONE){
+//                    System.out.println("test");
+//                    etintent.performClick();
+//                    return true;
+//                }else {
+//                    return false;
+//                }
+//            }
+//        });
 
-
-
+        etintent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intenttosearch = new Intent(getActivity(),SearchActivity.class);
+                startActivity(intenttosearch);
+            }
+        });
         adapterAuthors= new AuthorsHotelAdapter(listAuthor,getActivity());
         rlvAuthors.setHasFixedSize(true);
         staggered = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
