@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -20,7 +21,7 @@ import java.util.Calendar;
 public class SearchActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     Button checkindatebutton,checkoutdatebutton,nextbutton;
-    TextView tvspinpeople,tvspinbedroom;
+    TextView tvspinpeople,tvspinbedroom,tvskip;
     Spinner spinnerpeople,spinnerbedroom;
     int buttonidentifier=0;
     ArrayAdapter<String> peoplearradapter,bedroomarradapter;
@@ -28,6 +29,7 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+        tvskip = findViewById(R.id.tvskip);
         nextbutton = findViewById(R.id.nextbuttonsearch);
         tvspinbedroom = findViewById(R.id.bedroomtvspin);
         tvspinpeople = findViewById(R.id.peopletvspin);
@@ -35,6 +37,7 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
         spinnerbedroom = findViewById(R.id.spinnersearchbedroom);
         checkindatebutton = findViewById(R.id.buttoncheckin);
         checkoutdatebutton = findViewById(R.id.buttoncheckout);
+        tvskip.setText(Html.fromHtml("<u>Skip For Now</u>"));
         nextbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

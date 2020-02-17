@@ -199,6 +199,7 @@
 
         </LinearLayout>
         <TextView
+            android:id="@+id/tvskip"
             android:layout_marginBottom="8dp"
             android:textColor="#000000"
             android:textSize="22dp"
