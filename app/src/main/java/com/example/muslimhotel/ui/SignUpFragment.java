@@ -3,6 +3,7 @@ package com.example.muslimhotel.ui;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.preference.PreferenceManager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -24,9 +26,13 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.example.muslimhotel.MainActivity;
 import com.example.muslimhotel.R;
 import com.example.muslimhotel.app.AppController;
 import com.example.muslimhotel.util.Server;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -97,8 +103,38 @@ public class SignUpFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 Log.e("cekresponse", "Register Response: " + response.toString());
-                hideDialog();
-                Toast.makeText(getActivity(), "Registrasi Berhasil", Toast.LENGTH_LONG).show();
+                try {
+
+                    JSONObject object = new JSONObject(response);
+
+                    String status = object.getString("status");
+                    Log.d("cekstatus", "onResponse: "+status);
+
+
+                    /*
+                    status = 2 > gagal, emailnya udah ada di db
+                    status = 1 > sukses masukin data register ke db
+                    status = 0 > gagal, server down/ada bug codingan
+
+                     */
+                    if (status.equalsIgnoreCase("1")){
+                        hideDialog();
+                        Toast.makeText(getActivity(), "Registrasi Berhasil", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(getActivity(), SigninActivity.class));
+                    }else if (status.equalsIgnoreCase("2")){
+                        hideDialog();
+                        Toast.makeText(getActivity(), "Registrasi Gagal, Email Sudah Tersedia", Toast.LENGTH_LONG).show();
+                    }else{
+                        hideDialog();
+                        Toast.makeText(getActivity(), "Server Sibuk", Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    hideDialog();
+                    Toast.makeText(getActivity(), "Ada Kesalahan Merespon", Toast.LENGTH_LONG).show();
+
+                }
+
             }
         }, new Response.ErrorListener() {
 
