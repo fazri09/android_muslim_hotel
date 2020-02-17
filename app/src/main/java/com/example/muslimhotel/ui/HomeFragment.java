@@ -7,6 +7,8 @@ import android.content.DialogInterface;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
@@ -53,6 +55,7 @@ public class HomeFragment extends Fragment {
     View dialogView;
     TextView tvunderline;
     Button btnOk;
+
     private ViewPager viewPager;
     private String TAG = "HomeFragment";
     private RecyclerView rLvPromo,rlvPicks,rlvDiscover,rlvAuthors;
@@ -74,7 +77,6 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
-
         rLvPromo = (RecyclerView)v.findViewById(R.id.rV1);
         rlvPicks = (RecyclerView)v.findViewById(R.id.rV2);
         rlvDiscover = (RecyclerView)v.findViewById(R.id.rV3);

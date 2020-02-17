@@ -1,14 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_height="559dp"
+    android:layout_width="324dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_centerHorizontal="true"
+    android:layout_centerVertical="true"
+    app:cardCornerRadius="3dp"
+    android:id="@+id/cvdial"
+
+    >
     <RelativeLayout
-        android:layout_width="344dp"
-        android:layout_height="559dp"
+
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
-        android:background="@drawable/dialogboxgradient">
+        android:background="@drawable/dialogboxgradient"
+        android:layout_width="324dp"
+        android:layout_height="559dp">
+
+        <!--    <RelativeLayout-->
+        <!--        android:layout_centerVertical="true"-->
+        <!--        android:layout_centerHorizontal="true"-->
+        <!--        android:layout_width="match_parent"-->
+        <!--        android:layout_height="match_parent"-->
+        <!--        android:layout_centerInParent="true"-->
+        <!--        android:background="@drawable/dialogboxgradient">-->
 
         <TextView
             android:id="@+id/dialogtv1"
@@ -22,23 +42,24 @@
             android:text="Hotel Halal Features"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="25dp" />
+            android:textSize="28dp" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/linedialog1"
-            android:layout_width="344dp"
+            android:layout_width="match_parent"
             android:layout_height="7dp"
             android:layout_below="@id/dialogtv1"
             android:background="@drawable/roundedlinedialog" />
 
         <RelativeLayout
-            android:layout_width="334dp"
+            android:layout_width="324dp"
             android:layout_height="473dp"
             android:layout_below="@id/linedialog1"
             android:layout_centerInParent="true"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="4dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="4dp"
+
             android:background="@drawable/roundedboxdialogwhite">
 
             <LinearLayout
@@ -54,6 +75,8 @@
                     android:src="@drawable/food" />
 
                 <LinearLayout
+                    android:layout_marginTop="27dp"
+                    android:layout_marginLeft="8dp"
                     android:layout_width="215dp"
                     android:layout_height="110dp"
                     android:orientation="vertical">
@@ -61,7 +84,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+
                         android:fontFamily="@font/bahnschrift"
                         android:text="Halal Food"
                         android:textColor="#000000"
@@ -71,7 +94,6 @@
                     <TextView
                         android:layout_width="167dp"
                         android:layout_height="60dp"
-                        android:layout_marginLeft="10dp"
                         android:fontFamily="@font/bahnschrift"
                         android:text="Find Hotel That Have 100% Halal Food"
                         android:textColor="#000000"
@@ -87,11 +109,13 @@
                 android:layout_marginTop="15dp">
 
                 <ImageView
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
+                    android:layout_marginLeft="27dp"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
                     android:src="@drawable/noa" />
 
                 <LinearLayout
+                    android:layout_marginLeft="20dp"
                     android:layout_width="215dp"
                     android:layout_height="110dp"
                     android:orientation="vertical">
@@ -125,11 +149,13 @@
                 android:layout_marginTop="15dp">
 
                 <ImageView
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
+                    android:layout_marginLeft="9dp"
+                    android:layout_width="88dp"
+                    android:layout_height="88dp"
                     android:src="@drawable/beach" />
 
                 <LinearLayout
+                    android:layout_marginLeft="20dp"
                     android:layout_width="215dp"
                     android:layout_height="110dp"
                     android:orientation="vertical">
@@ -137,17 +163,16 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="5dp"
                         android:fontFamily="@font/bahnschrift"
                         android:text="Beaches and Pool Only For Women or Your Family"
                         android:textColor="#000000"
-                        android:textSize="15.5dp"
+                        android:textSize="14dp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:layout_width="167dp"
                         android:layout_height="60dp"
-                        android:layout_marginLeft="10dp"
                         android:fontFamily="@font/bahnschrift"
                         android:text="There are some hotel that have pool and beaches for your family"
                         android:textColor="#000000"
@@ -195,6 +220,8 @@
                     android:src="@drawable/drhelpbrown" />
             </LinearLayout>
         </RelativeLayout>
+        <!--    </RelativeLayout>-->
+
     </RelativeLayout>
 
-</RelativeLayout>
+</androidx.cardview.widget.CardView>
