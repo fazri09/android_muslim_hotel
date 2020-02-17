@@ -60,7 +60,7 @@ public class HomeFragment extends Fragment {
     View dialogView;
     TextView tvunderline;
     Button btnOk;
-    EditText etintent;
+//    EditText etintent;
     private ViewPager viewPager;
     private String TAG = "HomeFragment";
     private RecyclerView rLvPromo,rlvPicks,rlvDiscover,rlvAuthors;
@@ -82,7 +82,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
-        etintent = v.findViewById(R.id.etintent);
+//        etintent = v.findViewById(R.id.etintent);
         rLvPromo = (RecyclerView)v.findViewById(R.id.rV1);
         rlvPicks = (RecyclerView)v.findViewById(R.id.rV2);
         rlvDiscover = (RecyclerView)v.findViewById(R.id.rV3);
@@ -127,13 +127,13 @@ public class HomeFragment extends Fragment {
 //            }
 //        });
 
-        etintent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intenttosearch = new Intent(getActivity(),SearchActivity.class);
-                startActivity(intenttosearch);
-            }
-        });
+//        etintent.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intenttosearch = new Intent(getActivity(),SearchActivity.class);
+//                startActivity(intenttosearch);
+//            }
+//        });
         adapterAuthors= new AuthorsHotelAdapter(listAuthor,getActivity());
         rlvAuthors.setHasFixedSize(true);
         staggered = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
