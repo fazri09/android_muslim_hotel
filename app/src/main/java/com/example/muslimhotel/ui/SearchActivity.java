@@ -20,11 +20,12 @@ import java.util.Calendar;
 
 public class SearchActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
-    Button checkindatebutton,checkoutdatebutton,nextbutton;
-    TextView tvspinpeople,tvspinbedroom,tvskip;
-    Spinner spinnerpeople,spinnerbedroom;
-    int buttonidentifier=0;
-    ArrayAdapter<String> peoplearradapter,bedroomarradapter;
+    Button checkindatebutton, checkoutdatebutton, nextbutton;
+    TextView tvspinpeople, tvspinbedroom, tvskip;
+    Spinner spinnerpeople, spinnerbedroom;
+    int buttonidentifier = 0;
+    ArrayAdapter<String> peoplearradapter, bedroomarradapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,10 +42,10 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
         nextbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (checkindatebutton.getText().equals("Choose Date")||checkoutdatebutton.getText().equals("Choose Date")) {
-                    Toast.makeText(SearchActivity.this,"Please Specify The Date",Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(SearchActivity.this,"Check-In Date: "+checkindatebutton.getText()+"\n"+"Check-Out Date: "+checkoutdatebutton.getText()+"\n"+"People: "+tvspinpeople.getText()+"\n"+"Bedrooms: "+tvspinbedroom.getText(),Toast.LENGTH_LONG).show();
+                if (checkindatebutton.getText().equals("Choose Date") || checkoutdatebutton.getText().equals("Choose Date")) {
+                    Toast.makeText(SearchActivity.this, "Please Specify The Date", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(SearchActivity.this, "Check-In Date: " + checkindatebutton.getText() + "\n" + "Check-Out Date: " + checkoutdatebutton.getText() + "\n" + "People: " + tvspinpeople.getText() + "\n" + "Bedrooms: " + tvspinbedroom.getText(), Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -54,11 +55,11 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
                 String selecteditem = spinnerbedroom.getItemAtPosition(i).toString();
                 if (selecteditem.equals("1")) {
                     tvspinbedroom.setText("1");
-                }else if (selecteditem.equals("2")) {
+                } else if (selecteditem.equals("2")) {
                     tvspinbedroom.setText("2");
-                }else if (selecteditem.equals("3")) {
+                } else if (selecteditem.equals("3")) {
                     tvspinbedroom.setText("3");
-                }else {
+                } else {
                     tvspinbedroom.setText("1");
                 }
             }
@@ -74,15 +75,15 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
                 String selecteditem = spinnerpeople.getItemAtPosition(i).toString();
                 if (selecteditem.equals("1")) {
                     tvspinpeople.setText("1");
-                }else if (selecteditem.equals("2")) {
+                } else if (selecteditem.equals("2")) {
                     tvspinpeople.setText("2");
-                }else if (selecteditem.equals("3")) {
+                } else if (selecteditem.equals("3")) {
                     tvspinpeople.setText("3");
-                }else if (selecteditem.equals("4")) {
+                } else if (selecteditem.equals("4")) {
                     tvspinpeople.setText("4");
-                }else if (selecteditem.equals("5")) {
+                } else if (selecteditem.equals("5")) {
                     tvspinpeople.setText("5");
-                }else {
+                } else {
                     tvspinpeople.setText("1");
                 }
             }
@@ -103,78 +104,79 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
                 this,
                 android.R.layout.simple_list_item_1,
                 getResources().getStringArray(R.array.spinnerpeoplelist)
-                );
+        );
         peoplearradapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinnerpeople.setAdapter(peoplearradapter);
         checkindatebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                buttonidentifier=1;
+                buttonidentifier = 1;
                 showdatepickerdialogue();
             }
         });
         checkoutdatebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                buttonidentifier=0;
+                buttonidentifier = 0;
                 showdatepickerdialogue();
             }
         });
     }
+
     private void showdatepickerdialogue() {
-        DatePickerDialog datePickerDialog = new DatePickerDialog(this,this, Calendar.getInstance().get(Calendar.YEAR),Calendar.getInstance().get(Calendar.MONTH),Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, this, Calendar.getInstance().get(Calendar.YEAR), Calendar.getInstance().get(Calendar.MONTH), Calendar.getInstance().get(Calendar.DAY_OF_MONTH));
         datePickerDialog.show();
     }
 
     @Override
     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
-        String month="February";
+        String month = "February";
         switch (i1) {
             case 0:
-                month="January";
+                month = "January";
                 break;
             case 1:
-                month="February";
+                month = "February";
                 break;
             case 2:
-                month="March";
+                month = "March";
                 break;
             case 3:
-                month="April";
+                month = "April";
                 break;
             case 4:
-                month="May";
+                month = "May";
                 break;
             case 5:
-                month="June";
+                month = "June";
                 break;
             case 6:
-                month="July";
+                month = "July";
                 break;
             case 7:
-                month="August";
+                month = "August";
                 break;
             case 8:
-                month="September";
+                month = "September";
                 break;
             case 9:
-                month="October";
+                month = "October";
                 break;
             case 10:
-                month="November";
+                month = "November";
                 break;
             case 11:
-                month="December";
+                month = "December";
                 break;
-                default:
-                    month="January";
-                    break;
+            default:
+                month = "January";
+                break;
 
         }
-        String pickeddate = i2+" "+month+" "+i;
-        if (buttonidentifier==1) {
+        String pickeddate = i2 + " " + month + " " + i;
+        if (buttonidentifier == 1) {
             checkindatebutton.setText(pickeddate);
-        }else {
+        } else {
             checkoutdatebutton.setText(pickeddate);
         }
 

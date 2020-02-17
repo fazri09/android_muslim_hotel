@@ -4,212 +4,219 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.SearchActivity"
     android:background="@drawable/backsearch"
-    >
+    tools:context=".ui.SearchActivity">
+
     <TextView
         android:id="@+id/cdtv"
-        android:layout_centerHorizontal="true"
-        android:textAlignment="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/bahnschrift"
-        android:textSize="30dp"
-        android:layout_marginTop="122dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="7dp"
-        android:textColor="#FFFFFF"
-        android:text="Choose Your Date for Hotel"
-        android:textStyle="bold"
-        />
-    <RelativeLayout
         android:layout_centerHorizontal="true"
-        android:elevation="18dp"
-        android:layout_marginTop="65dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="122dp"
+        android:layout_marginRight="7dp"
+        android:fontFamily="@font/bahnschrift"
+        android:text="Choose Your Date for Hotel"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="30dp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
         android:layout_width="331dp"
         android:layout_height="279dp"
         android:layout_below="@id/cdtv"
-        android:background="@drawable/roundedsearchbox">
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="65dp"
+        android:background="@drawable/roundedsearchbox"
+        android:elevation="18dp">
+
         <LinearLayout
 
             android:layout_width="331dp"
             android:layout_height="279dp"
             android:background="@drawable/roundedsearchbox"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
+
             <RelativeLayout
-                android:layout_marginBottom="31dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="31dp"
                 android:layout_width="127dp"
                 android:layout_height="match_parent"
-                >
+                android:layout_marginLeft="24dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginBottom="31dp">
+
                 <TextView
                     android:id="@+id/cidsearchtv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bahnschrift"
-                    android:textColor="#000000"
-                    android:textSize="12dp"
                     android:text="Check-in date"
-                    />
+                    android:textColor="#000000"
+                    android:textSize="12dp" />
+
                 <Button
-                    android:drawableLeft="@drawable/dlcalsearch"
                     android:id="@+id/buttoncheckin"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/bahnschrift"
-                    android:textSize="9dp"
-                    android:textAllCaps="false"
-                    android:layout_marginTop="7dp"
-                    android:layout_below="@id/cidsearchtv"
                     android:layout_width="127dp"
                     android:layout_height="34dp"
+                    android:layout_below="@id/cidsearchtv"
+                    android:layout_marginTop="7dp"
                     android:background="@drawable/buttonsearchborder"
+                    android:drawableLeft="@drawable/dlcalsearch"
+                    android:fontFamily="@font/bahnschrift"
                     android:text="Choose Date"
-                    />
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textSize="9dp" />
+
                 <TextView
                     android:id="@+id/tvpeoplesearch"
-                    android:layout_marginTop="19dp"
-                    android:layout_below="@id/buttoncheckin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/buttoncheckin"
+                    android:layout_marginTop="19dp"
                     android:fontFamily="@font/bahnschrift"
-                    android:textColor="#000000"
-                    android:textSize="12dp"
                     android:text="People"
-                    />
+                    android:textColor="#000000"
+                    android:textSize="12dp" />
+
                 <RelativeLayout
-                    android:layout_marginTop="7dp"
-                    android:layout_below="@id/tvpeoplesearch"
                     android:layout_width="66dp"
                     android:layout_height="34dp"
-                    android:background="@drawable/buttonsearchborder"
-                    >
+                    android:layout_below="@id/tvpeoplesearch"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/buttonsearchborder">
+
                     <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_centerVertical="true"
                         android:id="@+id/peopletvspin"
                         android:layout_width="33dp"
                         android:layout_height="17dp"
-                        android:textColor="#000000"
-                        android:textSize="14dp"
-                        android:fontFamily="@font/bahnschrift"
-                        />
-                    <Spinner
                         android:layout_centerVertical="true"
-                        android:layout_toRightOf="@id/peopletvspin"
-                        android:textAlignment="center"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/bahnschrift"
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <Spinner
+                        android:layout_alignParentRight="true"
                         android:id="@+id/spinnersearchpeople"
                         android:layout_width="33dp"
                         android:layout_height="17dp"
-                        />
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/peopletvspin"
+                        android:textAlignment="center" />
                 </RelativeLayout>
             </RelativeLayout>
+
             <RelativeLayout
-                android:layout_marginTop="31dp"
-                android:layout_marginBottom="31dp"
-                android:layout_marginLeft="32dp"
                 android:layout_width="127dp"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_marginLeft="32dp"
+                android:layout_marginTop="31dp"
+                android:layout_marginBottom="31dp">
+
                 <TextView
                     android:id="@+id/codsearchtv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bahnschrift"
-                    android:textColor="#000000"
-                    android:textSize="12dp"
                     android:text="Check-out date"
-                    />
+                    android:textColor="#000000"
+                    android:textSize="12dp" />
+
                 <Button
-                    android:drawableLeft="@drawable/dlcalsearch"
                     android:id="@+id/buttoncheckout"
-                    android:textAlignment="center"
-                    android:fontFamily="@font/bahnschrift"
-                    android:textSize="9dp"
-                    android:textAllCaps="false"
-                    android:layout_marginTop="7dp"
-                    android:layout_below="@id/codsearchtv"
                     android:layout_width="127dp"
                     android:layout_height="34dp"
+                    android:layout_below="@id/codsearchtv"
+                    android:layout_marginTop="7dp"
                     android:background="@drawable/buttonsearchborder"
-                    android:text="Choose Date"
-                    />
-                <TextView
-                    android:id="@+id/tvbedroomsearch"
-                    android:layout_marginTop="19dp"
-                    android:layout_below="@id/buttoncheckout"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/dlcalsearch"
                     android:fontFamily="@font/bahnschrift"
-                    android:textColor="#000000"
-                    android:textSize="12dp"
+                    android:text="Choose Date"
+                    android:textAlignment="center"
+                    android:textAllCaps="false"
+                    android:textSize="9dp" />
+
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/tvbedroomsearch"
+                    android:layout_width="95dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/buttoncheckout"
+                    android:layout_marginTop="19dp"
+                    android:fontFamily="@font/bahnschrift"
                     android:text="Bedrooms"
-                    />
+                    android:textColor="#000000"
+                    android:textSize="12dp" />
+
                 <RelativeLayout
                     android:id="@+id/layoutspinner2"
-                    android:layout_marginTop="7dp"
-                    android:layout_below="@id/tvbedroomsearch"
-                    android:layout_width="66dp"
+                    android:layout_width="95dp"
                     android:layout_height="34dp"
-                    android:background="@drawable/buttonsearchborder"
-                    >
+                    android:layout_alignParentRight="true"
+                    android:layout_below="@id/tvbedroomsearch"
+                    android:layout_marginTop="7dp"
+                    android:background="@drawable/buttonsearchborder">
+
                     <TextView
-                        android:layout_marginLeft="10dp"
-                        android:layout_centerVertical="true"
                         android:id="@+id/bedroomtvspin"
                         android:layout_width="33dp"
                         android:layout_height="17dp"
-                        android:textColor="#000000"
-                        android:textSize="14dp"
-                        android:fontFamily="@font/bahnschrift"
-                        />
-                    <Spinner
                         android:layout_centerVertical="true"
-                        android:layout_toRightOf="@id/bedroomtvspin"
+                        android:layout_marginLeft="10dp"
+                        android:fontFamily="@font/bahnschrift"
+                        android:textColor="#000000"
+                        android:textSize="14dp" />
+
+                    <Spinner
+                        android:layout_alignParentRight="true"
                         android:id="@+id/spinnersearchbedroom"
                         android:layout_width="33dp"
                         android:layout_height="17dp"
-                        />
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/bedroomtvspin" />
                 </RelativeLayout>
+
                 <LinearLayout
-                    android:layout_marginTop="22dp"
-                    android:layout_below="@id/layoutspinner2"
+                    android:layout_alignParentRight="true"
                     android:layout_width="91dp"
                     android:layout_height="41dp"
-                    android:orientation="horizontal"
-                    >
+                    android:layout_below="@id/layoutspinner2"
+                    android:layout_marginTop="22dp"
+                    android:orientation="horizontal">
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/bahnschrift"
-                        android:textSize="17dp"
-                        android:textColor="#000000"
                         android:text="Next"
-                        />
+                        android:textColor="#000000"
+                        android:textSize="17dp" />
+
                     <Button
                         android:id="@+id/nextbuttonsearch"
-                        android:drawableLeft="@drawable/dlarrsearch"
-                        android:layout_marginLeft="6dp"
                         android:layout_width="41dp"
                         android:layout_height="41dp"
+                        android:layout_marginLeft="6dp"
                         android:background="@drawable/circlebuttonsearch"
-                        />
+                        android:drawableLeft="@drawable/dlarrsearch" />
                 </LinearLayout>
             </RelativeLayout>
 
         </LinearLayout>
+
         <TextView
             android:id="@+id/tvskip"
-            android:layout_marginBottom="8dp"
-            android:textColor="#000000"
-            android:textSize="22dp"
-            android:textStyle="bold"
-            android:fontFamily="@font/bahnschrift"
-            android:layout_centerInParent="true"
-            android:layout_alignParentBottom="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Skip For Now"/>
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/bahnschrift"
+            android:text="Skip For Now"
+            android:textColor="#000000"
+            android:textSize="22dp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
 </RelativeLayout>
