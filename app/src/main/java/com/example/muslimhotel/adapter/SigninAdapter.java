@@ -19,19 +19,22 @@ import com.example.muslimhotel.ui.SignUpFragment;
 public class SigninAdapter extends FragmentStatePagerAdapter {
 
     private Context context;
+
     public SigninAdapter(FragmentManager fm, Context context) {
         super(fm);
         this.context = context;
+
     }
 
     @NonNull
     @Override
     public Fragment getItem(int position) {
         if (position == 0){
-            return new LoginFragment();
-        }else {
+                return new LoginFragment();
 
-            return new SignUpFragment();
+        }else {
+                return new SignUpFragment();
+
         }
     }
 

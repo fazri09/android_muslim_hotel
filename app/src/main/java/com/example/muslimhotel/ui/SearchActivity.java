@@ -3,6 +3,7 @@ package com.example.muslimhotel.ui;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.View;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.muslimhotel.R;
+import com.example.muslimhotel.model.SearchHotel;
 
 import java.util.Calendar;
 
@@ -47,7 +49,11 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
                 } else {
                     Toast.makeText(SearchActivity.this, "Check-In Date: " + checkindatebutton.getText() + "\n" + "Check-Out Date: " + checkoutdatebutton.getText() + "\n" + "People: " + tvspinpeople.getText() + "\n" + "Bedrooms: " + tvspinbedroom.getText(), Toast.LENGTH_LONG).show();
                 }
+                Intent intent = new Intent(SearchActivity.this, SearchHotelActivity.class);
+                startActivity(intent);
             }
+
+
         });
         spinnerbedroom.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
