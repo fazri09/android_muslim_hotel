@@ -5,6 +5,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -24,6 +26,7 @@ import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -61,6 +64,7 @@ public class HomeFragment extends Fragment {
     TextView tvunderline;
     Button btnOk;
 //    EditText etintent;
+
     private ViewPager viewPager;
     private String TAG = "HomeFragment";
     private RecyclerView rLvPromo,rlvPicks,rlvDiscover,rlvAuthors;
@@ -268,6 +272,8 @@ public class HomeFragment extends Fragment {
         final Dialog dialog = new Dialog(getActivity());
         dialog.setContentView(R.layout.item_dialog_home);
         dialog.setCancelable(false);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
 
         tvunderline = dialog.findViewById(R.id.tvunderline);
         String undr = "<u>What is Hotel Halal Features</u>";
