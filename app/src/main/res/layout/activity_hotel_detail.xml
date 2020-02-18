@@ -241,7 +241,7 @@
                         <TextView
                             android:id="@+id/tvTanggalCheck"
                             android:textAlignment="center"
-                            android:layout_marginLeft="11dp"
+                            android:layout_marginLeft="21dp"
                             android:layout_centerVertical="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -252,11 +252,6 @@
                             android:textSize="12dp"
                             android:text="23 - 24 Dec 2019"
                             />
-                        <Spinner
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"/>
 
                     </RelativeLayout>
                     <TextView
@@ -302,7 +297,7 @@
                         <TextView
                             android:id="@+id/tvPeopleBedroom"
                             android:textAlignment="center"
-                            android:layout_marginLeft="5dp"
+                            android:layout_marginLeft="15dp"
                             android:layout_centerVertical="true"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -313,12 +308,7 @@
                             android:textSize="11dp"
                             android:text="1 Bedroom-3 People"
                             />
-                        <Spinner
-                            android:layout_marginLeft="3dp"
-                            android:layout_centerVertical="true"
-                            android:layout_alignParentRight="true"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"/>
+
 
                     </RelativeLayout>
                     <TextView
