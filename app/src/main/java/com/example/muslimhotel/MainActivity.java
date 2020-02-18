@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(MainActivity.this);
-
+        Log.d("cek_sess", "onCreate: "+sp.getBoolean(LoginFragment.PREF_IS_LOGIN, false));
         if (sp.getBoolean(LoginFragment.PREF_IS_LOGIN, false)) {
             startActivity(new Intent(MainActivity.this, HomeActivity.class));
             finish();
@@ -54,19 +54,18 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SigninActivity.class);
-                intent.putExtra("login",1);
-                startActivity(intent);
-                finish();
-            }
-        });
-        relativeSignUP.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, SigninActivity.class);
-                intent.putExtra("login",0);
+//                intent.putExtra("login",1);
                 startActivity(intent);
             }
         });
+//        relativeSignUP.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(MainActivity.this, SigninActivity.class);
+//                intent.putExtra("login",0);
+//                startActivity(intent);
+//            }
+//        });
         skip = (TextView) findViewById(R.id.skip);
 
         faddingTextView.setTimeout(FadingTextView.SECONDS,2);

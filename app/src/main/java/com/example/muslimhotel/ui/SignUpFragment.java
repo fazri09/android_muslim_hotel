@@ -78,9 +78,17 @@ public class SignUpFragment extends Fragment {
                 password2 = et_cpassword.getText().toString();
 
                 if (password2.equalsIgnoreCase("")){
-                    password_ga_sesuai.setVisibility(View.VISIBLE);
+                    Toast.makeText(getActivity(), "Confrim Password Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
                 }else if (password.equalsIgnoreCase("")){
-                    password_ga_sesuai.setVisibility(View.VISIBLE);
+                    Toast.makeText(getActivity(), "Password Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
+                }else if (!email.contains("@")){
+                    Toast.makeText(getActivity(), "Email Harus Mengandung @", Toast.LENGTH_LONG).show();
+                }else  if (email.equalsIgnoreCase("")){
+                    Toast.makeText(getActivity(), "Email Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
+                }else if (!email.contains(".")){
+                    Toast.makeText(getActivity(), "Email harus mengandung .(titik)", Toast.LENGTH_LONG).show();
+                }else if (email.contains(" ")){
+                    Toast.makeText(getActivity(), "Email tidak boleh ada spasi", Toast.LENGTH_LONG).show();
                 }else {
                     if (password.equalsIgnoreCase(password2)){
                         reqSignupApi(nama, email, password);
@@ -122,6 +130,7 @@ public class SignUpFragment extends Fragment {
                         hideDialog();
                         Toast.makeText(getActivity(), "Registrasi Berhasil", Toast.LENGTH_LONG).show();
                         startActivity(new Intent(getActivity(), SigninActivity.class));
+                       getActivity().finish();
                     }else if (status.equalsIgnoreCase("2")){
                         hideDialog();
                         Toast.makeText(getActivity(), "Registrasi Gagal, Email Sudah Tersedia", Toast.LENGTH_LONG).show();
@@ -135,13 +144,6 @@ public class SignUpFragment extends Fragment {
                     Toast.makeText(getActivity(), "Ada Kesalahan Merespon", Toast.LENGTH_LONG).show();
 
                 }
-
-
-                hideDialog();
-                Toast.makeText(getActivity(), "Registrasi Berhasil", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getActivity(),HomeActivity.class);
-                startActivity(intent);
-
             }
         }, new Response.ErrorListener() {
 
