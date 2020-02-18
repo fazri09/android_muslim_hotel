@@ -75,6 +75,9 @@
                         android:src="@drawable/search" />
 
                     <EditText
+                        android:inputType="text"
+                        android:lines="1"
+                        android:maxLines="1"
                         android:id="@+id/etintent"
                         android:layout_width="150dp"
                         android:layout_height="match_parent"
@@ -82,7 +85,6 @@
                         android:layout_toLeftOf="@+id/ic_search"
                         android:background="@null"
                         android:hint="Enter your keywords"
-                        android:singleLine="true"
                         android:textColorHint="#111111"
                         android:textSize="15dp"
 

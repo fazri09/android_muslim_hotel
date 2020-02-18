@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
     View dialogView;
     TextView tvunderline;
     Button btnOk;
-//    EditText etintent;
+    EditText etintent;
 
     private ViewPager viewPager;
     private String TAG = "HomeFragment";
@@ -88,7 +88,7 @@ public class HomeFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v = inflater.inflate(R.layout.fragment_home, container, false);
-//        etintent = v.findViewById(R.id.etintent);
+        etintent = v.findViewById(R.id.etintent);
         rLvPromo = (RecyclerView)v.findViewById(R.id.rV1);
         rlvPicks = (RecyclerView)v.findViewById(R.id.rV2);
         rlvDiscover = (RecyclerView)v.findViewById(R.id.rV3);
@@ -120,6 +120,17 @@ public class HomeFragment extends Fragment {
         staggered.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         rlvDiscover.setLayoutManager(staggered);
         rlvDiscover.setAdapter(adapterDiscover);
+
+        etintent.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View view, int i, KeyEvent keyEvent) {
+                if (i == KeyEvent.KEYCODE_ENTER) {
+                    Intent intenttosearch = new Intent(getActivity(),SearchActivity.class);
+                    startActivity(intenttosearch);
+                }
+                return true;
+            }
+        });
 
 //        etintent.setOnEditorActionListener(new EditText.OnEditorActionListener() {
 //            @Override
