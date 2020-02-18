@@ -13,14 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.OtherPicturesActivity">
 
+        </activity>
         <activity android:name=".ui.HotelDetailActivity">
 
         </activity>
-
         <activity android:name=".ui.SearchHotelActivity"></activity>
-
-        <activity android:name=".ui.SearchActivity"></activity>
+        <activity android:name=".ui.SearchActivity" />
         <activity android:name=".ui.HomeActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".ui.SigninActivity" />
