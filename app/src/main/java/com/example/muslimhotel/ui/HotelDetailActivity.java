@@ -16,7 +16,7 @@ public class HotelDetailActivity extends AppCompatActivity {
 
     Button expandbutton;
     TextView tvKotaHotel;
-    TextView tvDeskripsi;
+    TextView tvDeskripsi, tvNamaHotel, tvHarga, tvReviewerHotel, tvScoreHotel, tvTanggalCheck, tvPeopleBedroom;
     ImageView othrpicture;
     int identifier=0;
 
@@ -24,8 +24,18 @@ public class HotelDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_detail);
-        othrpicture = findViewById(R.id.otherpctr);
-        tvKotaHotel = findViewById(R.id.tvKotaHotel);
+        othrpicture = (ImageView) findViewById(R.id.otherpctr);
+        expandbutton = (Button) findViewById(R.id.expandbutton);
+        tvDeskripsi = (TextView) findViewById(R.id.tvDeskripsi);
+        tvKotaHotel = (TextView)findViewById(R.id.tvKotaHotel);
+
+        tvNamaHotel = (TextView)findViewById(R.id.tvNamaHotel);
+        tvHarga = (TextView)findViewById(R.id.tvHarga);
+        tvReviewerHotel = (TextView)findViewById(R.id.tvReviewerHotel);
+        tvScoreHotel = (TextView)findViewById(R.id.tvScoreHotel);
+        tvTanggalCheck = (TextView)findViewById(R.id.tvTanggalCheck);
+        tvPeopleBedroom = (TextView)findViewById(R.id.tvPeopleBedroom);
+
         tvKotaHotel.setText(Html.fromHtml("<u>Turkey</u>"));
         othrpicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,8 +44,6 @@ public class HotelDetailActivity extends AppCompatActivity {
                 startActivity(intenttopict);
             }
         });
-        expandbutton = findViewById(R.id.expandbutton);
-        tvDeskripsi = findViewById(R.id.tvDeskripsi);
         expandbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
