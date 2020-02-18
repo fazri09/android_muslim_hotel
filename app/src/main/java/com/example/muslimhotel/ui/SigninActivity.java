@@ -26,20 +26,37 @@ public class SigninActivity extends AppCompatActivity {
         tabLayout = (TabLayout)findViewById(R.id.slide);
 
 
-        login = tabLayout.newTab();
-        signUp = tabLayout.newTab();
+
 
         signinAdapter = new SigninAdapter(getSupportFragmentManager(),this);
         viewPager.setAdapter(signinAdapter);
 
 
+        if (getIntent().getIntExtra("login",0) == 1){
 
-        setTextTabLayout();
-        tabLayout.addTab(login,0);
-        tabLayout.addTab(signUp,1);
+            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.white));
+            tabLayout.setTabTextColors(getResources().getColor(R.color.blue),getResources().getColor(R.color.white));
+            login = tabLayout.newTab();
+            signUp = tabLayout.newTab();
+            setTextTabLayout();
 
-        tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.white));
-        tabLayout.setTabTextColors(getResources().getColor(R.color.blue),getResources().getColor(R.color.white));
+            tabLayout.addTab(login,0);
+            tabLayout.addTab(signUp,1);
+
+        }else{
+
+            viewPager.setCurrentItem(1);
+
+            tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.blue));
+            tabLayout.setTabTextColors(getResources().getColor(R.color.white),getResources().getColor(R.color.blue));
+            login = tabLayout.newTab();
+            signUp = tabLayout.newTab();
+            setTextTabLayout();
+
+            tabLayout.addTab(login,0);
+            tabLayout.addTab(signUp,1);
+
+        }
 
 
 
@@ -47,6 +64,7 @@ public class SigninActivity extends AppCompatActivity {
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
+
                 viewPager.setCurrentItem(tab.getPosition());
                 if (tab.getPosition() == 0){
                     tabLayout.setSelectedTabIndicatorColor(getResources().getColor(R.color.white));
@@ -73,18 +91,24 @@ public class SigninActivity extends AppCompatActivity {
 
             }
         });
-
-        if(getIntent().getExtras()!=null){
+//
+        if(getIntent().getExtras()==null){
 
             TabLayout tabLayout = (TabLayout) findViewById(R.id.slide);
             TabLayout.Tab tab = tabLayout.getTabAt(1);
             tab.select();
         }
+//        else {
+//            TabLayout tabLayout = (TabLayout) findViewById(R.id.slide);
+//            TabLayout.Tab tab = tabLayout.getTabAt(0);
+//            tab.select();
+//        }
 
     }
 
     private void setTextTabLayout(){
-        login.setText("LOGIN");
         signUp.setText("SIGN UP");
+        login.setText("LOGIN");
+
     }
 }

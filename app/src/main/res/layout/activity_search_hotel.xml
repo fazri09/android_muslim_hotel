@@ -46,6 +46,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
+
         android:layout_marginTop="5dp"
         android:gravity="center"
         android:orientation="horizontal">
@@ -53,6 +54,7 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="4dp"
             android:orientation="vertical"
             >
 
@@ -60,6 +62,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textColor="#000000"
+                android:textSize="14sp"
                 android:text="Date"
                 />
             <androidx.cardview.widget.CardView
@@ -71,6 +75,7 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="8dp"
                     android:background="@drawable/et_sarch"
 
                     >
@@ -80,9 +85,12 @@
                     android:src="@drawable/calsearch"/>
 
                 <TextView
+                    android:id="@+id/tv_checkIn"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="3dp"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
                     android:text="23/2-2019"/>
                 <ImageView
                     android:layout_width="wrap_content"
@@ -93,9 +101,12 @@
                     android:src="@drawable/rectangle_1579"
                     />
                     <TextView
+                        android:id="@+id/tv_checkOut"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="24/12-2019"/>
+                        android:text="24/12-2019"
+                        android:textColor="#000000"
+                        android:textSize="12sp"/>
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -104,13 +115,13 @@
         <View
             android:layout_width="1dp"
             android:layout_height="match_parent"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
+
             android:background="@color/blue"
             />
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
             android:orientation="vertical"
             >
 
@@ -118,6 +129,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:textSize="14sp"
+                android:textColor="#000000"
                 android:text="Total"
                 />
             <androidx.cardview.widget.CardView
@@ -129,31 +142,24 @@
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:padding="6dp"
                     android:background="@drawable/et_sarch"
 
                     >
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/calsearch"/>
+                        android:src="@drawable/icon_ionic_ios_bed"/>
 
                     <TextView
+                        android:id="@+id/tv_bed_and_people"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="3dp"
-                        android:text="23/2-2019"/>
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:layout_marginLeft="2dp"
-                        android:layout_marginRight="2dp"
-                        android:src="@drawable/rectangle_1579"
-                        />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="24/12-2019"/>
+                        android:textSize="12sp"
+                        android:textColor="#000000"
+                        android:text="1 Bedroom - 3 People"/>
+
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
@@ -163,19 +169,24 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         >
         <TextView
+            android:id="@+id/tv_jhotel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:textSize="21sp"
+            android:textColor="#000000"
             android:text="4 Hotel found"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#000000"
             android:text="Filter"
+            android:textSize="21sp"
             android:layout_toLeftOf="@+id/iv_filter"
             />
         <ImageView

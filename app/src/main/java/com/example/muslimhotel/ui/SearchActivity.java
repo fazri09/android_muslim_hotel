@@ -27,6 +27,7 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
     Spinner spinnerpeople, spinnerbedroom;
     int buttonidentifier = 0;
     ArrayAdapter<String> peoplearradapter, bedroomarradapter;
+    String getCheckIn,getCheckOut;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +46,17 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
             @Override
             public void onClick(View view) {
                 if (checkindatebutton.getText().equals("Choose Date") || checkoutdatebutton.getText().equals("Choose Date")) {
-                    Toast.makeText(SearchActivity.this, "Please Specify The Date", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SearchActivity.this,"Ada data yang kosong", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(SearchActivity.this, "Check-In Date: " + checkindatebutton.getText() + "\n" + "Check-Out Date: " + checkoutdatebutton.getText() + "\n" + "People: " + tvspinpeople.getText() + "\n" + "Bedrooms: " + tvspinbedroom.getText(), Toast.LENGTH_LONG).show();
+
+                    Intent intent = new Intent(SearchActivity.this, SearchHotelActivity.class);
+                    intent.putExtra("checkin",getCheckIn);
+                    intent.putExtra("checkout",getCheckOut);
+                    intent.putExtra("people",tvspinpeople.getText());
+                    intent.putExtra("bedroom",tvspinbedroom.getText());
+                    startActivity(intent);
                 }
-                Intent intent = new Intent(SearchActivity.this, SearchHotelActivity.class);
-                startActivity(intent);
+
             }
 
 
@@ -180,10 +186,27 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
 
         }
         String pickeddate = i2 + " " + month + " " + i;
+        String bulan;
+        if (String.valueOf(i1+1).length() < 2){
+            bulan = "0"+String.valueOf(i1+1);
+        }else {
+            bulan = String.valueOf(i1+1);
+        }
+
+        String tgl;
+        if (String.valueOf(i2).length() < 2){
+            tgl = "0"+String.valueOf(i2);
+        }else {
+            tgl = String.valueOf(i2);
+        }
+
+
         if (buttonidentifier == 1) {
             checkindatebutton.setText(pickeddate);
+            getCheckIn = String.valueOf(i)+"-"+bulan+"-"+tgl;
         } else {
             checkoutdatebutton.setText(pickeddate);
+            getCheckOut = String.valueOf(i)+"-"+bulan+"-"+tgl;
         }
 
     }

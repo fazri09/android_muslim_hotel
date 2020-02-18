@@ -103,6 +103,7 @@ public class SignUpFragment extends Fragment {
             @Override
             public void onResponse(String response) {
                 Log.e("cekresponse", "Register Response: " + response.toString());
+
                 try {
 
                     JSONObject object = new JSONObject(response);
@@ -134,6 +135,12 @@ public class SignUpFragment extends Fragment {
                     Toast.makeText(getActivity(), "Ada Kesalahan Merespon", Toast.LENGTH_LONG).show();
 
                 }
+
+
+                hideDialog();
+                Toast.makeText(getActivity(), "Registrasi Berhasil", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(getActivity(),HomeActivity.class);
+                startActivity(intent);
 
             }
         }, new Response.ErrorListener() {

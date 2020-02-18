@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewFlipper vliper_image, vliper_loading;
     private TextView skip;
     private FadingTextView faddingTextView;
-    private RelativeLayout relativeLogin;
+    private RelativeLayout relativeLogin,relativeSignUP;
     @SuppressLint("WrongConstant")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,11 +48,22 @@ public class MainActivity extends AppCompatActivity {
         vliper_loading = (ViewFlipper) findViewById(R.id.vliper_loading);
         faddingTextView = (FadingTextView) findViewById(R.id.faddingTextView);
         relativeLogin = (RelativeLayout) findViewById(R.id.relativeLogin);
+        relativeSignUP = (RelativeLayout) findViewById(R.id.relativeSignup);
 
         relativeLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, SigninActivity.class);
+                intent.putExtra("login",1);
+                startActivity(intent);
+                finish();
+            }
+        });
+        relativeSignUP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, SigninActivity.class);
+                intent.putExtra("login",0);
                 startActivity(intent);
             }
         });
