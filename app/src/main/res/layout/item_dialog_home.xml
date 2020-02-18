@@ -2,8 +2,7 @@
 
 
 
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="559dp"
     android:layout_width="324dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -12,13 +11,16 @@
     app:cardCornerRadius="3dp"
     android:id="@+id/cvdial"
 
+    android:background="@drawable/dialogboxgradient"
     >
     <RelativeLayout
 
+        android:background="@drawable/dialogboxgradient"
+        android:id="@+id/rltrans"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_centerInParent="true"
-        android:background="@drawable/dialogboxgradient"
+
         android:layout_width="324dp"
         android:layout_height="559dp">
 
@@ -224,4 +226,4 @@
 
     </RelativeLayout>
 
-</androidx.cardview.widget.CardView>
+</RelativeLayout>

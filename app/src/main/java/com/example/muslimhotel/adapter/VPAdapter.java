@@ -31,6 +31,7 @@ public class VPAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         ImageView imageView = new ImageView(thiscontext);
+
         imageView.setScaleType(ImageView.ScaleType.MATRIX);
         imageView.setImageResource(mimageids[position]);
         container.addView(imageView,0);
@@ -46,4 +47,5 @@ public class VPAdapter extends PagerAdapter {
     public float getPageWidth(int position) {
         return 0.7f;
     }
+
 }
