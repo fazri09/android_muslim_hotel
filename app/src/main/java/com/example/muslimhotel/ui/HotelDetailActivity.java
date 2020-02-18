@@ -15,8 +15,8 @@ import com.example.muslimhotel.R;
 public class HotelDetailActivity extends AppCompatActivity {
 
     Button expandbutton;
-    TextView turkeytv;
-    TextView expandabletextview;
+    TextView tvKotaHotel;
+    TextView tvDeskripsi;
     ImageView othrpicture;
     int identifier=0;
 
@@ -25,8 +25,8 @@ public class HotelDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hotel_detail);
         othrpicture = findViewById(R.id.otherpctr);
-        turkeytv = findViewById(R.id.turkeytv);
-        turkeytv.setText(Html.fromHtml("<u>Turkey</u>"));
+        tvKotaHotel = findViewById(R.id.tvKotaHotel);
+        tvKotaHotel.setText(Html.fromHtml("<u>Turkey</u>"));
         othrpicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -35,16 +35,16 @@ public class HotelDetailActivity extends AppCompatActivity {
             }
         });
         expandbutton = findViewById(R.id.expandbutton);
-        expandabletextview = findViewById(R.id.expandabletv);
+        tvDeskripsi = findViewById(R.id.tvDeskripsi);
         expandbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (identifier==0) {
-                    expandabletextview.setMaxLines(100);
+                    tvDeskripsi.setMaxLines(100);
                     expandbutton.setBackgroundResource(R.drawable.uarrow);
                     identifier=1;
                 }else {
-                    expandabletextview.setMaxLines(4);
+                    tvDeskripsi.setMaxLines(4);
                     expandbutton.setBackgroundResource(R.drawable.darrow);
                     identifier=0;
                 }
