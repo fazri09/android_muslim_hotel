@@ -12,9 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginLeft="20dp"
         android:layout_marginTop="122dp"
-        android:layout_marginRight="7dp"
         android:fontFamily="@font/bahnschrift"
         android:text="Choose Your Date for Hotel"
         android:textAlignment="center"
@@ -24,7 +22,7 @@
 
     <RelativeLayout
         android:layout_width="331dp"
-        android:layout_height="279dp"
+        android:layout_height="336dp"
         android:layout_below="@id/cdtv"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="65dp"
@@ -32,21 +30,32 @@
         android:elevation="18dp">
 
         <LinearLayout
-
             android:layout_width="331dp"
-            android:layout_height="279dp"
+            android:layout_height="336dp"
             android:background="@drawable/roundedsearchbox"
             android:orientation="horizontal">
 
             <RelativeLayout
-                android:layout_width="127dp"
+                android:layout_width="137dp"
                 android:layout_height="match_parent"
                 android:layout_marginLeft="24dp"
                 android:layout_marginTop="31dp"
                 android:layout_marginBottom="31dp">
 
+                <EditText
+                    android:textSize="15dp"
+                    android:fontFamily="@font/bahnschrift"
+                    android:drawableLeft="@drawable/dlsearchfordate"
+                    android:id="@+id/ethotelname"
+                    android:layout_width="179dp"
+                    android:layout_height="34dp"
+                    android:background="@drawable/buttonsearchborder"
+                    />
+
                 <TextView
                     android:id="@+id/cidsearchtv"
+                    android:layout_marginTop="4dp"
+                    android:layout_below="@id/ethotelname"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/bahnschrift"
@@ -110,11 +119,12 @@
             <RelativeLayout
                 android:layout_width="127dp"
                 android:layout_height="match_parent"
-                android:layout_marginLeft="32dp"
+                android:layout_marginLeft="22dp"
                 android:layout_marginTop="31dp"
                 android:layout_marginBottom="31dp">
 
                 <TextView
+                    android:layout_marginTop="40dp"
                     android:id="@+id/codsearchtv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -182,7 +192,7 @@
                     android:layout_width="91dp"
                     android:layout_height="41dp"
                     android:layout_below="@id/layoutspinner2"
-                    android:layout_marginTop="22dp"
+                    android:layout_marginTop="12dp"
                     android:orientation="horizontal">
 
                     <TextView

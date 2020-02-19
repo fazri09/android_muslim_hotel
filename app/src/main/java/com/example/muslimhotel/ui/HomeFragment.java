@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
 import android.text.Html;
+import android.text.InputType;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -121,14 +122,19 @@ public class HomeFragment extends Fragment {
         rlvDiscover.setLayoutManager(staggered);
         rlvDiscover.setAdapter(adapterDiscover);
 
+
+
+
         etintent.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
-                if (i == KeyEvent.KEYCODE_ENTER) {
+                if (i == KeyEvent.KEYCODE_ENTER&&keyEvent.getAction()==KeyEvent.ACTION_DOWN) {
                     Intent intenttosearch = new Intent(getActivity(),SearchActivity.class);
+                    intenttosearch.putExtra("hotelnamevalue",etintent.getText().toString());
                     startActivity(intenttosearch);
+                    return true;
                 }
-                return true;
+                return false;
             }
         });
 
@@ -149,6 +155,7 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intenttosearch = new Intent(getActivity(),SearchActivity.class);
+                intenttosearch.putExtra("hotelnamevalue",etintent.getText().toString());
                 startActivity(intenttosearch);
             }
         });
