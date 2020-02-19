@@ -148,6 +148,7 @@
                         />
                 </RelativeLayout>
                 <LinearLayout
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -155,11 +156,21 @@
                     android:gravity="center"
                     >
                     <TextView
+                        android:textColor="#000000"
+                        android:fontFamily="@font/bestrong"
                         android:id="@+id/deskripsi"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="12sp"
-                        android:text="Hotel Halal Features : "/>
+                        android:text="Hotel Halal Features "/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="#000000"
+                        android:text=":"
+                        android:textStyle="bold"
+                        />
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
