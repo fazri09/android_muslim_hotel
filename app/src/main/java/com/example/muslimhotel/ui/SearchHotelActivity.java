@@ -10,7 +10,9 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -43,6 +45,7 @@ public class SearchHotelActivity extends AppCompatActivity {
     private StaggeredGridLayoutManager setGapStrategy;
     private EditText et_search;
     private String tglAwal,tglAkhir,jOrang,jKamar,jQueryKota;
+    private ImageView iv_back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +58,15 @@ public class SearchHotelActivity extends AppCompatActivity {
         tvJhotel = (TextView)findViewById(R.id.tv_jhotel);
         tvBadAndPeople = (TextView)findViewById(R.id.tv_bed_and_people);
         et_search = (EditText) findViewById(R.id.et_search);
+        iv_back = (ImageView) findViewById(R.id.iv_back);
 
+
+        iv_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         tglAwal = getIntent().getStringExtra("checkin");
         tglAkhir = getIntent().getStringExtra("checkout");
