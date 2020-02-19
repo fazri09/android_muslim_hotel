@@ -54,16 +54,29 @@ public class SearchHotelActivity extends AppCompatActivity {
         String tglAkhir = getIntent().getStringExtra("checkout");
         String jOrang = getIntent().getStringExtra("people");
         String jKamar = getIntent().getStringExtra("bedroom");
-        Log.d(TAG, "onCreate: "+tglAwal+" "+tglAkhir+" "+jOrang+" "+jKamar);
 
-        tvCheckIn.setText(tglAwal);
-        tvCheckOut.setText(tglAkhir);
-        tvBadAndPeople.setText(jKamar+" Bedroom - "+jOrang+" People");
-        adapter = new SearchAdapter(list,this);
-        setGapStrategy = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
-        setGapStrategy.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
-        recyclerView.setLayoutManager(setGapStrategy);
-        recyclerView.setAdapter(adapter);
+
+        if (tglAwal.equalsIgnoreCase("9")){
+            tvCheckIn.setText("");
+            tvCheckOut.setText("");
+            tvBadAndPeople.setText("-");
+            adapter = new SearchAdapter(list, this);
+            setGapStrategy = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+            setGapStrategy.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
+            recyclerView.setLayoutManager(setGapStrategy);
+            recyclerView.setAdapter(adapter);
+        }else {
+            Log.d(TAG, "onCreate: " + tglAwal + " " + tglAkhir + " " + jOrang + " " + jKamar);
+
+            tvCheckIn.setText(tglAwal);
+            tvCheckOut.setText(tglAkhir);
+            tvBadAndPeople.setText(jKamar + " Bedroom - " + jOrang + " People");
+            adapter = new SearchAdapter(list, this);
+            setGapStrategy = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
+            setGapStrategy.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
+            recyclerView.setLayoutManager(setGapStrategy);
+            recyclerView.setAdapter(adapter);
+        }
         getDataHotel(tglAwal,tglAkhir,jKamar,jOrang);
     }
 

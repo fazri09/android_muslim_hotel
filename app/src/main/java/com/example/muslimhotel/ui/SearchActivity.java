@@ -51,6 +51,18 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
         checkindatebutton = findViewById(R.id.buttoncheckin);
         checkoutdatebutton = findViewById(R.id.buttoncheckout);
         tvskip.setText(Html.fromHtml("<u>Skip For Now</u>"));
+
+        tvskip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchActivity.this, SearchHotelActivity.class);
+                intent.putExtra("checkin","9");
+                intent.putExtra("checkout","10");
+                intent.putExtra("people","1");
+                intent.putExtra("bedroom","1");
+                startActivity(intent);
+            }
+        });
         nextbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
