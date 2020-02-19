@@ -49,6 +49,7 @@ public class LoginFragment extends Fragment {
     public static final String PREF_PASSWORD = "data_password";
     public static final String PREF_NAMA = "data_nama";
     public static final String PREF_ID = "data_id";
+    public static final String PREF_PENGGUNA = "data_pengguna";
 
 
 
@@ -103,6 +104,7 @@ public class LoginFragment extends Fragment {
                     String nama = object.getString("nama");
                     String email = object.getString("email");
                     String password = object.getString("password");
+                    String pengguna = object.getString("pengguna");
                     Log.d("cekstatus", "onResponse: "+status);
 
                     if (status.equalsIgnoreCase("1")){
@@ -114,6 +116,7 @@ public class LoginFragment extends Fragment {
                         editor.putString(PREF_PASSWORD, password);
                         editor.putString(PREF_EMAIL, email);
                         editor.putString(PREF_ID, id);
+                        editor.putString(PREF_PENGGUNA, pengguna);
                         editor.commit();
 
 

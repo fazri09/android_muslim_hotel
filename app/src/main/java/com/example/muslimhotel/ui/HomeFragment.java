@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
@@ -17,6 +18,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import androidx.viewpager.widget.ViewPager;
 
+import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.InputType;
 import android.util.Log;
@@ -30,6 +32,7 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -55,6 +58,7 @@ import org.json.JSONObject;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -81,6 +85,7 @@ public class HomeFragment extends Fragment {
     private String URLGetDataEditor = Server.URL_PROD+"/crud/editor";
     private String URLGetDataDiscover = Server.URL_PROD+"/crud/hotel_near";
     private String URLGetDataAuthors = Server.URL_PROD+"/crud/author";
+    private String URLUserUpdateLama = Server.URL_PROD+"/crud/ubah_pengguna";
 
     private RelativeLayout btn_search;
 
@@ -178,7 +183,14 @@ public class HomeFragment extends Fragment {
         VPAdapter vpAdapter = new VPAdapter(v.getContext());
         viewPager.setAdapter(vpAdapter);
 
-        showDialogPertama();
+
+        SharedPreferences spa = PreferenceManager.getDefaultSharedPreferences(getActivity());
+        String sess_pengguna = spa.getString(LoginFragment.PREF_PENGGUNA, null);
+
+        Log.d("ceksessionpengguna", "onCreateView: "+sess_pengguna);
+        if (sess_pengguna.equalsIgnoreCase("baru")){
+            showDialogPertama();
+        }
         getDataEditors();
         getDataDiscover();
         getDataAuthors();
@@ -312,8 +324,45 @@ public class HomeFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
+                SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                String sess_id = sp.getString(LoginFragment.PREF_ID, null);
+                updateUserLama(sess_id);
             }
         });
         dialog.show();
+    }
+
+    private void updateUserLama(final String sess_id) {
+        StringRequest srUpdateUser = new StringRequest(Request.Method.POST, URLUserUpdateLama, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Log.d("responseuser","Update" +response);
+                //set session
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString(LoginFragment.PREF_PENGGUNA, "lama");
+                editor.commit();
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.d("responseuser","error" +error);
+                Toast.makeText(getActivity(),"Server Issue", Toast.LENGTH_SHORT).show();
+                SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString(LoginFragment.PREF_PENGGUNA, "lama");
+                editor.commit();
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                HashMap<String, String> prams = new HashMap<>();
+                prams.put("id_user", sess_id);
+                return prams;
+            }
+        };
+
+        AppController.getInstance().addToRequestQueue(srUpdateUser);
     }
 }

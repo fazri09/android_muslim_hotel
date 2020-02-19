@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -39,6 +42,7 @@ public class SearchHotelActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private StaggeredGridLayoutManager setGapStrategy;
     private EditText et_search;
+    private String tglAwal,tglAkhir,jOrang,jKamar,jQueryKota;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,11 +57,11 @@ public class SearchHotelActivity extends AppCompatActivity {
         et_search = (EditText) findViewById(R.id.et_search);
 
 
-        String tglAwal = getIntent().getStringExtra("checkin");
-        String tglAkhir = getIntent().getStringExtra("checkout");
-        String jOrang = getIntent().getStringExtra("people");
-        String jKamar = getIntent().getStringExtra("bedroom");
-        String jQueryKota = getIntent().getStringExtra("query_kota");
+        tglAwal = getIntent().getStringExtra("checkin");
+        tglAkhir = getIntent().getStringExtra("checkout");
+        jOrang = getIntent().getStringExtra("people");
+        jKamar = getIntent().getStringExtra("bedroom");
+        jQueryKota = getIntent().getStringExtra("query_kota");
 
 
         if (tglAwal.equalsIgnoreCase("9")){
@@ -84,20 +88,45 @@ public class SearchHotelActivity extends AppCompatActivity {
             recyclerView.setAdapter(adapter);
         }
         getDataHotel(tglAwal,tglAkhir,jKamar,jOrang, jQueryKota);
+
+//        et_search.addTextChangedListener(new TextWatcher() {
+//            @Override
+//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+//
+//            }
+//
+//            @Override
+//            public void afterTextChanged(Editable editable) {
+//                jQueryKota = et_search.getText().toString();
+//                getDataHotel(tglAwal,tglAkhir,jKamar,jOrang, jQueryKota);
+//
+//            }
+//        });
+
     }
 
     public void  getDataHotel(final String tglAwal, final String tglAkhir, final String jKamar, final String jOrang, final String jQueryKota) {
+        final ProgressDialog dialog = ProgressDialog.show(SearchHotelActivity.this, "",
+                "Mohon Tunggu", true);
+        dialog.setCancelable(false);
         StringRequest srGetDataHotel = new StringRequest(Request.Method.POST, URLGetDataHotel, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
-                    Log.d(TAG, "onResponse: "+response);
+                    dialog.dismiss();
+                    Log.d("cekresponse", "onResponse: "+response);
                     JSONArray array = new JSONArray(response);
                     Log.d(TAG, "onResponse: "+array.length());
                     for (int i = 0; i < array.length(); i++) {
                         JSONObject data = array.getJSONObject(i);
                         SearchHotel get = new SearchHotel();
                         if (data.getString("messages").equalsIgnoreCase("success")){
+                            dialog.dismiss();
                             Log.d(TAG, "onResponse: "+data.getString("id_hotel"));
                             get.setHargaHotel(data.getString("harga"));
                             get.setGambarHotel(data.getString("img_hotel"));
@@ -116,19 +145,21 @@ public class SearchHotelActivity extends AppCompatActivity {
                             list.add(get);
                             adapter.notifyDataSetChanged();
                         }else if (data.getString("messages").equalsIgnoreCase("gagal")){
-                            Intent intent = new Intent(SearchHotelActivity.this,SearchActivity.class);
-                            Toast.makeText(SearchHotelActivity.this,"Data tida ada",Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                            tvJhotel.setText("0 Hotel found");
+                            Intent intent = new Intent(SearchHotelActivity.this,HomeActivity.class);
+                            Toast.makeText(SearchHotelActivity.this,"Data tidak ada",Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                             finish();
 
                         }else {
-                            Intent intent = new Intent(SearchHotelActivity.this,SearchActivity.class);
+                            dialog.dismiss();
+                            tvJhotel.setText("0 Hotel found");
+                            Intent intent = new Intent(SearchHotelActivity.this,HomeActivity.class);
                             Toast.makeText(SearchHotelActivity.this,"Tanggal Check In tidak boleh melebihin tanggal Check Out",Toast.LENGTH_SHORT).show();
                             startActivity(intent);
                             finish();
                         }
-
-
                     }
 
 
@@ -139,6 +170,8 @@ public class SearchHotelActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                dialog.dismiss();
+                Toast.makeText(SearchHotelActivity.this,"Server Error",Toast.LENGTH_SHORT).show();
 
             }
         }) {
