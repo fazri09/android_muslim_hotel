@@ -63,7 +63,7 @@ public class HomeFragment extends Fragment {
     LayoutInflater inflater;
     View dialogView;
     TextView tvunderline;
-    Button btnOk;
+    Button btnOk,searchbuttonhome;
     EditText etintent;
 
     private ViewPager viewPager;
@@ -95,6 +95,7 @@ public class HomeFragment extends Fragment {
         rlvDiscover = (RecyclerView)v.findViewById(R.id.rV3);
         rlvAuthors= (RecyclerView)v.findViewById(R.id.rV4);
         btn_search = (RelativeLayout)v.findViewById(R.id.btn_search);
+        searchbuttonhome = v.findViewById(R.id.searchbuttonhome);
 
         listPromo.add(new Promo(R.drawable.promo1));
         listPromo.add(new Promo(R.drawable.promo1));
@@ -121,6 +122,14 @@ public class HomeFragment extends Fragment {
         staggered.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
         rlvDiscover.setLayoutManager(staggered);
         rlvDiscover.setAdapter(adapterDiscover);
+        searchbuttonhome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intenttosearch = new Intent(getActivity(),SearchActivity.class);
+                intenttosearch.putExtra("hotelnamevalue",etintent.getText().toString());
+                startActivity(intenttosearch);
+            }
+        });
 
 
 
@@ -151,14 +160,14 @@ public class HomeFragment extends Fragment {
 //            }
 //        });
 
-        btn_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intenttosearch = new Intent(getActivity(),SearchActivity.class);
-                intenttosearch.putExtra("hotelnamevalue",etintent.getText().toString());
-                startActivity(intenttosearch);
-            }
-        });
+//        btn_search.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intenttosearch = new Intent(getActivity(),SearchActivity.class);
+//                intenttosearch.putExtra("hotelnamevalue",etintent.getText().toString());
+//                startActivity(intenttosearch);
+//            }
+//        });
         adapterAuthors= new AuthorsHotelAdapter(listAuthor,getActivity());
         rlvAuthors.setHasFixedSize(true);
         staggered = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.HORIZONTAL);
