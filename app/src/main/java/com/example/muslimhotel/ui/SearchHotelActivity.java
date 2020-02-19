@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,12 +32,13 @@ import java.util.Map;
 
 public class SearchHotelActivity extends AppCompatActivity {
     private String TAG = "SearchHotelActivvity";
-    private String URLGetDataHotel = Server.URL_PROD+"/crud/search_hotel";
+    private String URLGetDataHotel = Server.URL_PROD+"/crud/search_hotel_by_kota";
     private TextView tvCheckIn,tvCheckOut,tvJhotel,tvBadAndPeople;
     private SearchAdapter adapter;
     private ArrayList<SearchHotel> list = new ArrayList<>();
     private RecyclerView recyclerView;
     private StaggeredGridLayoutManager setGapStrategy;
+    private EditText et_search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,39 +50,43 @@ public class SearchHotelActivity extends AppCompatActivity {
         tvCheckOut = (TextView)findViewById(R.id.tv_checkOut);
         tvJhotel = (TextView)findViewById(R.id.tv_jhotel);
         tvBadAndPeople = (TextView)findViewById(R.id.tv_bed_and_people);
+        et_search = (EditText) findViewById(R.id.et_search);
 
 
         String tglAwal = getIntent().getStringExtra("checkin");
         String tglAkhir = getIntent().getStringExtra("checkout");
         String jOrang = getIntent().getStringExtra("people");
         String jKamar = getIntent().getStringExtra("bedroom");
+        String jQueryKota = getIntent().getStringExtra("query_kota");
 
 
         if (tglAwal.equalsIgnoreCase("9")){
             tvCheckIn.setText("");
             tvCheckOut.setText("");
             tvBadAndPeople.setText("-");
+            et_search.setText(jQueryKota);
             adapter = new SearchAdapter(list, this);
             setGapStrategy = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
             setGapStrategy.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
             recyclerView.setLayoutManager(setGapStrategy);
             recyclerView.setAdapter(adapter);
         }else {
-            Log.d(TAG, "onCreate: " + tglAwal + " " + tglAkhir + " " + jOrang + " " + jKamar);
+            Log.d(TAG, "onCreate: " + tglAwal + " " + tglAkhir + " " + jOrang + " " + jKamar + " " + jQueryKota);
 
             tvCheckIn.setText(tglAwal);
             tvCheckOut.setText(tglAkhir);
             tvBadAndPeople.setText(jKamar + " Bedroom - " + jOrang + " People");
+            et_search.setText(jQueryKota);
             adapter = new SearchAdapter(list, this);
             setGapStrategy = new StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL);
             setGapStrategy.setGapStrategy(StaggeredGridLayoutManager.GAP_HANDLING_NONE);
             recyclerView.setLayoutManager(setGapStrategy);
             recyclerView.setAdapter(adapter);
         }
-        getDataHotel(tglAwal,tglAkhir,jKamar,jOrang);
+        getDataHotel(tglAwal,tglAkhir,jKamar,jOrang, jQueryKota);
     }
 
-    public void  getDataHotel(final String tglAwal, final String tglAkhir, final String jKamar, final String jOrang) {
+    public void  getDataHotel(final String tglAwal, final String tglAkhir, final String jKamar, final String jOrang, final String jQueryKota) {
         StringRequest srGetDataHotel = new StringRequest(Request.Method.POST, URLGetDataHotel, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -113,11 +119,13 @@ public class SearchHotelActivity extends AppCompatActivity {
                             Intent intent = new Intent(SearchHotelActivity.this,SearchActivity.class);
                             Toast.makeText(SearchHotelActivity.this,"Data tida ada",Toast.LENGTH_SHORT).show();
                             startActivity(intent);
+                            finish();
 
                         }else {
                             Intent intent = new Intent(SearchHotelActivity.this,SearchActivity.class);
                             Toast.makeText(SearchHotelActivity.this,"Tanggal Check In tidak boleh melebihin tanggal Check Out",Toast.LENGTH_SHORT).show();
                             startActivity(intent);
+                            finish();
                         }
 
 
@@ -141,6 +149,7 @@ public class SearchHotelActivity extends AppCompatActivity {
                 prams.put("tanggal_akhir", tglAkhir);
                 prams.put("jumlah_people", jOrang);
                 prams.put("jumlah_bedrooms", jKamar);
+                prams.put("query_kota", jQueryKota);
                 return prams;
             }
         };

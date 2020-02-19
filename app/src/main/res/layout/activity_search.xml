@@ -43,6 +43,9 @@
                 android:layout_marginBottom="31dp">
 
                 <EditText
+                    android:textColor="@android:color/black"
+                    android:enabled="false"
+                    android:singleLine="true"
                     android:textSize="15dp"
                     android:fontFamily="@font/bahnschrift"
                     android:drawableLeft="@drawable/dlsearchfordate"

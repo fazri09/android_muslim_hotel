@@ -29,6 +29,7 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
     int buttonidentifier = 0;
     ArrayAdapter<String> peoplearradapter, bedroomarradapter;
     String getCheckIn,getCheckOut;
+    private String hotelnamevalue;
 
 
     EditText ethotelname;
@@ -40,7 +41,7 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
         setContentView(R.layout.activity_search);
         Intent intent2 = getIntent();
         ethotelname = findViewById(R.id.ethotelname);
-        final String hotelnamevalue = intent2.getStringExtra("hotelnamevalue");
+        hotelnamevalue = intent2.getStringExtra("hotelnamevalue");
         ethotelname.setText(hotelnamevalue);
         tvskip = findViewById(R.id.tvskip);
         nextbutton = findViewById(R.id.nextbuttonsearch);
@@ -60,6 +61,7 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
                 intent.putExtra("checkout","10");
                 intent.putExtra("people","1");
                 intent.putExtra("bedroom","1");
+                intent.putExtra("query_kota",hotelnamevalue);
                 startActivity(intent);
             }
         });
@@ -75,6 +77,7 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
                     intent.putExtra("checkout",getCheckOut);
                     intent.putExtra("people",tvspinpeople.getText());
                     intent.putExtra("bedroom",tvspinbedroom.getText());
+                    intent.putExtra("query_kota",hotelnamevalue);
                     startActivity(intent);
                 }
 
@@ -230,5 +233,12 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
             getCheckOut = String.valueOf(i)+"-"+bulan+"-"+tgl;
         }
 
+    }
+
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(SearchActivity.this, HomeActivity.class);
+        startActivity(intent);
+        finish();
     }
 }
