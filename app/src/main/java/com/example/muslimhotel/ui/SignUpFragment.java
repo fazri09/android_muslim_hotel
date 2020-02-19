@@ -76,6 +76,7 @@ public class SignUpFragment extends Fragment {
                 email = et_email.getText().toString();
                 password = et_password.getText().toString();
                 password2 = et_cpassword.getText().toString();
+                String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
 
                 if (password2.equalsIgnoreCase("")){
                     Toast.makeText(getActivity(), "Confrim Password Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
@@ -89,6 +90,8 @@ public class SignUpFragment extends Fragment {
                     Toast.makeText(getActivity(), "Email harus mengandung .(titik)", Toast.LENGTH_LONG).show();
                 }else if (email.contains(" ")){
                     Toast.makeText(getActivity(), "Email tidak boleh ada spasi", Toast.LENGTH_LONG).show();
+                }else if (!email.matches(emailPattern)){
+                    Toast.makeText(getActivity(),"Email tidak valid",Toast.LENGTH_SHORT).show();
                 }else {
                     if (password.equalsIgnoreCase(password2)){
                         reqSignupApi(nama, email, password);
