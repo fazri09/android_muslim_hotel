@@ -67,14 +67,14 @@
                 android:text="Date"
                 />
             <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="182dp"
+                android:layout_height="31dp"
                 android:background="@color/white"
                 android:layout_marginTop="10dp"
                 >
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="182dp"
+                    android:layout_height="31dp"
                     android:padding="8dp"
                     android:background="@drawable/et_sarch"
 
@@ -134,14 +134,14 @@
                 android:text="Total"
                 />
             <androidx.cardview.widget.CardView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="159dp"
+                android:layout_height="31dp"
                 android:background="@color/white"
                 android:layout_marginTop="10dp"
                 >
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="159dp"
+                    android:layout_height="31dp"
                     android:padding="6dp"
                     android:background="@drawable/et_sarch"
 
