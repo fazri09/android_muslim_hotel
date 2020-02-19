@@ -20,11 +20,13 @@
                 >
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:layout_width="210dp"
+                    android:id="@+id/iv_gambar_hotel"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/beachdet"
                     />
                 <LinearLayout
+                    android:visibility="gone"
                     android:orientation="vertical"
                     android:layout_width="160dp"
                     android:layout_height="match_parent"
@@ -67,6 +69,7 @@
                     <TextView
                         android:id="@+id/tvNamaHotel"
                         android:textSize="24dp"
+                        android:singleLine="true"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/bahnschrift"

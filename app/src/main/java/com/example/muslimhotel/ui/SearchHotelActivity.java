@@ -90,8 +90,10 @@ public class SearchHotelActivity extends AppCompatActivity {
                             get.setScoreHotel(data.getString("score_hotel"));
                             get.setReaview(data.getString("reviewer_hotel"));
                             get.setDeskripsi(data.getString("deskripsi"));
+                            get.setTglAwalHotel(data.getString("tanggal_awal"));
+                            get.setTglAkhirHotel(data.getString("tanggal_akhir"));
 
-//                        tvJhotel.setText();
+                            tvJhotel.setText(data.getString("total_rows")+" Hotel found");
                             list.add(get);
                             adapter.notifyDataSetChanged();
                         }else if (data.getString("messages").equalsIgnoreCase("gagal")){
