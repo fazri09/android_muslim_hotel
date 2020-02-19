@@ -212,8 +212,8 @@
                 android:background="@drawable/dividerdet"
                 />
             <LinearLayout
+                android:gravity="center"
                 android:layout_marginRight="4dp"
-
                 android:id="@+id/datelayout"
                 android:layout_marginTop="14.5dp"
                 android:layout_below="@id/viewdet1"
@@ -365,9 +365,8 @@
                     android:text="Features"
                     />
                 <LinearLayout
+                    android:gravity="center"
                     android:layout_marginTop="18dp"
-
-                    android:layout_marginLeft="28.5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -411,12 +410,13 @@
 
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_marginLeft="27dp"
+                    android:gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     >
                     <TextView
+                        android:layout_marginLeft="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/bahnschrift"
