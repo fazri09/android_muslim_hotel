@@ -199,11 +199,30 @@
             />
 
     </RelativeLayout>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/dataNotFound"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Data Hotel Not Found"
+        android:layout_marginTop="1dp"
+        android:textColor="#FF0000"
+        android:textAlignment="center"
+        />
+
+    <ProgressBar
+        android:layout_gravity="center"
+        android:id="@+id/progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
+
+
 
 
 </LinearLayout>

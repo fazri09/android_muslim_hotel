@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,7 +39,7 @@ import java.util.Map;
 public class SearchHotelActivity extends AppCompatActivity {
     private String TAG = "SearchHotelActivvity";
     private String URLGetDataHotel = Server.URL_PROD+"/crud/search_hotel_by_kota";
-    private TextView tvCheckIn,tvCheckOut,tvJhotel,tvBadAndPeople;
+    private TextView tvCheckIn,tvCheckOut,tvJhotel,tvBadAndPeople,dataNotFound;
     private SearchAdapter adapter;
     private ArrayList<SearchHotel> list = new ArrayList<>();
     private RecyclerView recyclerView;
@@ -46,6 +47,8 @@ public class SearchHotelActivity extends AppCompatActivity {
     private EditText et_search;
     private String tglAwal,tglAkhir,jOrang,jKamar,jQueryKota;
     private ImageView iv_back;
+    private ProgressBar progressBar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,8 +60,10 @@ public class SearchHotelActivity extends AppCompatActivity {
         tvCheckOut = (TextView)findViewById(R.id.tv_checkOut);
         tvJhotel = (TextView)findViewById(R.id.tv_jhotel);
         tvBadAndPeople = (TextView)findViewById(R.id.tv_bed_and_people);
+        dataNotFound = (TextView)findViewById(R.id.dataNotFound);
         et_search = (EditText) findViewById(R.id.et_search);
         iv_back = (ImageView) findViewById(R.id.iv_back);
+        progressBar = (ProgressBar) findViewById(R.id.progress_bar);
 
 
         iv_back.setOnClickListener(new View.OnClickListener() {
@@ -99,37 +104,38 @@ public class SearchHotelActivity extends AppCompatActivity {
             recyclerView.setAdapter(adapter);
         }
         getDataHotel(tglAwal,tglAkhir,jKamar,jOrang, jQueryKota);
+        dataNotFound.setVisibility(View.GONE);
 
-//        et_search.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                jQueryKota = et_search.getText().toString();
-//                getDataHotel(tglAwal,tglAkhir,jKamar,jOrang, jQueryKota);
-//
-//            }
-//        });
+
+        et_search.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                jQueryKota = et_search.getText().toString();
+                getDataHotel(tglAwal,tglAkhir,jKamar,jOrang, jQueryKota);
+
+            }
+        });
 
     }
 
     public void  getDataHotel(final String tglAwal, final String tglAkhir, final String jKamar, final String jOrang, final String jQueryKota) {
-        final ProgressDialog dialog = ProgressDialog.show(SearchHotelActivity.this, "",
-                "Mohon Tunggu", true);
-        dialog.setCancelable(false);
+        showProgress(true);
+        list.clear();
         StringRequest srGetDataHotel = new StringRequest(Request.Method.POST, URLGetDataHotel, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
-                    dialog.dismiss();
+                    showProgress(false);
                     Log.d("cekresponse", "onResponse: "+response);
                     JSONArray array = new JSONArray(response);
                     Log.d(TAG, "onResponse: "+array.length());
@@ -137,7 +143,8 @@ public class SearchHotelActivity extends AppCompatActivity {
                         JSONObject data = array.getJSONObject(i);
                         SearchHotel get = new SearchHotel();
                         if (data.getString("messages").equalsIgnoreCase("success")){
-                            dialog.dismiss();
+                            dataNotFound.setVisibility(View.GONE);
+                            showProgress(false);
                             Log.d(TAG, "onResponse: "+data.getString("id_hotel"));
                             get.setHargaHotel(data.getString("harga"));
                             get.setGambarHotel(data.getString("img_hotel"));
@@ -156,15 +163,17 @@ public class SearchHotelActivity extends AppCompatActivity {
                             list.add(get);
                             adapter.notifyDataSetChanged();
                         }else if (data.getString("messages").equalsIgnoreCase("gagal")){
-                            dialog.dismiss();
+                            showProgress(false);
                             tvJhotel.setText("0 Hotel found");
-                            Intent intent = new Intent(SearchHotelActivity.this,HomeActivity.class);
-                            Toast.makeText(SearchHotelActivity.this,"Data tidak ada",Toast.LENGTH_SHORT).show();
-                            startActivity(intent);
-                            finish();
+                            dataNotFound.setVisibility(View.VISIBLE);
+//                            Intent intent = new Intent(SearchHotelActivity.this,HomeActivity.class);
+//                            Toast.makeText(SearchHotelActivity.this,"Data tidak ada",Toast.LENGTH_SHORT).show();
+//                            startActivity(intent);
+//                            finish();
 
                         }else {
-                            dialog.dismiss();
+                            dataNotFound.setVisibility(View.GONE);
+                            showProgress(false);
                             tvJhotel.setText("0 Hotel found");
                             Intent intent = new Intent(SearchHotelActivity.this,HomeActivity.class);
                             Toast.makeText(SearchHotelActivity.this,"Tanggal Check In tidak boleh melebihin tanggal Check Out",Toast.LENGTH_SHORT).show();
@@ -181,7 +190,7 @@ public class SearchHotelActivity extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                dialog.dismiss();
+                showProgress(false);
                 Toast.makeText(SearchHotelActivity.this,"Server Error",Toast.LENGTH_SHORT).show();
 
             }
@@ -199,6 +208,11 @@ public class SearchHotelActivity extends AppCompatActivity {
         };
 
         AppController.getInstance().addToRequestQueue(srGetDataHotel);
+
+    }
+
+    private void showProgress(boolean v){
+        progressBar.setVisibility(v ? View.VISIBLE:View.GONE);
 
     }
 
