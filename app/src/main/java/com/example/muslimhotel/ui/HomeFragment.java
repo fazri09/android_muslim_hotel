@@ -365,4 +365,6 @@ public class HomeFragment extends Fragment {
 
         AppController.getInstance().addToRequestQueue(srUpdateUser);
     }
+
 }
+

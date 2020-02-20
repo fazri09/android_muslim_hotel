@@ -1,6 +1,7 @@
 package com.example.muslimhotel.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
@@ -77,5 +78,11 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             this.imageSelected = imageSelected;
             this.imageUnselected = imageUnselected;
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        ActivityCompat.finishAffinity(HomeActivity.this);
+
     }
 }

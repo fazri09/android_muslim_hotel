@@ -123,6 +123,7 @@ public class LoginFragment extends Fragment {
                         //intent
                         Toast.makeText(getActivity(), "Login Berhasil", Toast.LENGTH_LONG).show();
                         Intent intent = new Intent(getActivity(), MainActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                         startActivity(intent);
                         getActivity().finish();
                     }else{
