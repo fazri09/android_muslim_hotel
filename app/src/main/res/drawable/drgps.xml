@@ -21,7 +21,7 @@
 
     </item>
     <item
-        android:drawable="@drawable/search"
+        android:drawable="@drawable/gpsdet"
         android:right="10dp"
         android:bottom="10dp"
         android:left="10dp"
