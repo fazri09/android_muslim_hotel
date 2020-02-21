@@ -24,7 +24,7 @@ import java.util.Calendar;
 public class SearchActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
 
     Button checkindatebutton, checkoutdatebutton, nextbutton;
-    TextView tvspinpeople, tvspinbedroom, tvskip;
+    TextView  tvskip;
     Spinner spinnerpeople, spinnerbedroom;
     int buttonidentifier = 0;
     ArrayAdapter<String> peoplearradapter, bedroomarradapter;
@@ -45,13 +45,12 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
         ethotelname.setText(hotelnamevalue);
         tvskip = findViewById(R.id.tvskip);
         nextbutton = findViewById(R.id.nextbuttonsearch);
-        tvspinbedroom = findViewById(R.id.bedroomtvspin);
-        tvspinpeople = findViewById(R.id.peopletvspin);
         spinnerpeople = findViewById(R.id.spinnersearchpeople);
         spinnerbedroom = findViewById(R.id.spinnersearchbedroom);
         checkindatebutton = findViewById(R.id.buttoncheckin);
         checkoutdatebutton = findViewById(R.id.buttoncheckout);
         tvskip.setText(Html.fromHtml("<u>Skip For Now</u>"));
+
 
         tvskip.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,8 +74,8 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
                     Intent intent = new Intent(SearchActivity.this, SearchHotelActivity.class);
                     intent.putExtra("checkin",getCheckIn);
                     intent.putExtra("checkout",getCheckOut);
-                    intent.putExtra("people",tvspinpeople.getText());
-                    intent.putExtra("bedroom",tvspinbedroom.getText());
+                    intent.putExtra("people",spinnerpeople.getSelectedItem().toString());
+                    intent.putExtra("bedroom",spinnerbedroom.getSelectedItem().toString());
                     intent.putExtra("query_kota",hotelnamevalue);
                     startActivity(intent);
                 }
@@ -90,13 +89,13 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String selecteditem = spinnerbedroom.getItemAtPosition(i).toString();
                 if (selecteditem.equals("1")) {
-                    tvspinbedroom.setText("1");
+                    spinnerbedroom.setSelection(0);
                 } else if (selecteditem.equals("2")) {
-                    tvspinbedroom.setText("2");
+                    spinnerbedroom.setSelection(1);
                 } else if (selecteditem.equals("3")) {
-                    tvspinbedroom.setText("3");
+                    spinnerbedroom.setSelection(2);
                 } else {
-                    tvspinbedroom.setText("1");
+                    spinnerbedroom.setSelection(0);
                 }
             }
 
@@ -110,17 +109,17 @@ public class SearchActivity extends AppCompatActivity implements DatePickerDialo
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String selecteditem = spinnerpeople.getItemAtPosition(i).toString();
                 if (selecteditem.equals("1")) {
-                    tvspinpeople.setText("1");
+                    spinnerpeople.setSelection(0);
                 } else if (selecteditem.equals("2")) {
-                    tvspinpeople.setText("2");
+                    spinnerpeople.setSelection(1);
                 } else if (selecteditem.equals("3")) {
-                    tvspinpeople.setText("3");
+                    spinnerpeople.setSelection(2);
                 } else if (selecteditem.equals("4")) {
-                    tvspinpeople.setText("4");
+                    spinnerpeople.setSelection(3);
                 } else if (selecteditem.equals("5")) {
-                    tvspinpeople.setText("5");
+                    spinnerpeople.setSelection(4);
                 } else {
-                    tvspinpeople.setText("1");
+                    spinnerpeople.setSelection(0);
                 }
             }
 
